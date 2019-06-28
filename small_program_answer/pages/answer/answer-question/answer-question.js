@@ -19,8 +19,8 @@ Page({
    */
   onLoad: function (options) {
     var that = this;
-    util.Requset("Phone/Question/GetList", "GET", {}, function (res) {
-      console.log(res);
+    util.Requset("api/Question/GetList", "GET", {}, function (res) {
+      console.log(res.data);
       if (res.data.success) {
         that.setData({
           questionBank: res.data.list,
@@ -51,6 +51,7 @@ Page({
       ChooseId: e.currentTarget.dataset.optionsid,
       falg: true
     })
+    
   },
   userConfirm: function () {
     console.log(this.data.falg);
@@ -79,7 +80,7 @@ Page({
         mask: true
 
       })
-      util.Requset("Phone/Question/UserAnswer", "POST", JSON.stringify(that.data.questionBank), function (res) {
+      util.Requset("api/Question/UserAnswer", "POST", JSON.stringify(that.data.questionBank),               function (res) {
         console.log(res);
         wx.hideLoading();
         if (res.data.success) {
@@ -91,9 +92,9 @@ Page({
           showCancel: false,
           success: function (res) {
             if (res.confirm) {
-              wx.navigateBack({
-                delta: 2
-              })
+              // wx.navigateTo({
+              //   url: "../../mine-info/mine-integral/mine-integral"
+              // })
             }
           }
         })

@@ -5,8 +5,8 @@ Page({
         banner_1: "../../images/banner/banner_1.jpg",
         banner_2: "../../images/banner/banner_2.jpg",
         banner_3: "../../images/banner/banner_3.jpg",
-      realname:"",
-      phone:"",
+        realname:"",
+        phone:"",
         // banner_1: "https://www.gmoai.top/Resources/banner/banner_1.jpg",
         // banner_2: "https://www.gmoai.top/Resources/banner/banner_2.jpg",
         // banner_3: "https://www.gmoai.top/Resources/banner/banner_3.jpg",
@@ -52,7 +52,8 @@ Page({
         });
         return;
       }
-
+      app.globalData.realname=this.data.realname;
+      app.globalData.phone=this.data.phone;
 
         wx.navigateTo({
             url: "../../pages/answer/answer-loading/answer-loading"
