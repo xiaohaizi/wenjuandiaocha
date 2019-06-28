@@ -13,6 +13,7 @@
     </view>
     <!--新增内容  -->
     <view class="next">
+    
       <text bindtap="userConfirm">{{next}}</text>
     </view> 
 </view>
