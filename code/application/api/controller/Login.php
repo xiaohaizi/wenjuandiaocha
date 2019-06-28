@@ -9,4 +9,14 @@ class Login
         $data["integral"]="1";
         return json_encode($data);
     }
+
+
+    public  function login(){
+
+        $data=request()->instance()->param();
+
+
+        
+          return  json_encode($data);
+    }
 }

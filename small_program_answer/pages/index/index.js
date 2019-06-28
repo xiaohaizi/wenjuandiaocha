@@ -54,10 +54,17 @@ Page({
       }
       app.globalData.realname=this.data.realname;
       app.globalData.phone=this.data.phone;
+      util.Requset("api/login/login", "POST",
+       { "realname": this.data.realname, "phone": this.data.phone},
+       function(data){
+         console.log(data);
+        // wx.navigateTo({
+        //   url: "../../pages/answer/answer-loading/answer-loading"
+        // })
 
-        wx.navigateTo({
-            url: "../../pages/answer/answer-loading/answer-loading"
-        })
+      });
+
+        
     },
     study: function () {
         wx.navigateTo({
