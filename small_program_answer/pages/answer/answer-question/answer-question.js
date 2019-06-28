@@ -37,9 +37,9 @@ Page({
               wx.navigateBack({
                 delta: 2
               })
-              // wx.switchTab({
-              //   url: '../../../pages/mine/mine',
-              // })
+              wx.switchTab({
+                url: '../../../pages/mine/mine',
+              })
             }
           }
         })
@@ -51,7 +51,7 @@ Page({
       ChooseId: e.currentTarget.dataset.optionsid,
       falg: true
     })
-    
+
   },
   userConfirm: function () {
     console.log(this.data.falg);
