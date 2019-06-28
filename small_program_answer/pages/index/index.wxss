@@ -1,5 +1,7 @@
 page {
-    background: url(https://www.gmoai.top/Resources/index-background.jpg);
+  width: 100%;
+  margin: 0 auto;
+  /*  background: url(../../images/a.jpg);*/
 }
 
 swiper {
@@ -22,21 +24,9 @@ swiper image {
     flex-direction: column;
 }
 
-.study {
-    background: url(https://www.gmoai.top/Resources/study.jpg)no-repeat center /cover;
-}
 
-.explan {
-    background: url(https://www.gmoai.top/Resources/introduce.jpg)no-repeat center /cover;
-}
 
-.start {
-    background: url(https://www.gmoai.top/Resources/start.jpg)no-repeat center /cover;
-}
 
-.sign {
-    background: url(https://www.gmoai.top/Resources/today.jpg)no-repeat center /cover;
-}
 
 .shadow {
     width: 100%;
@@ -49,7 +39,7 @@ swiper image {
 }
 
 .half {
-    height: 280rpx;
+    height: 580rpx;
     position: relative;
     margin: 30rpx;
     box-shadow: 0 0 5px #333;
@@ -65,8 +55,22 @@ swiper image {
     color: #fff;
     line-height: 280rpx;
     text-align: center;
+
     width: 100%;
+    
 }
+.text input{
+  margin: 0 auto;
+  color: white;
+  height: 3rem;
+  line-height: 3rem;
+  font-size: 16px;
+  width: 95%;
+  border-bottom: 1rpx solid #fff;
+}
+
+
+
 
 text {
     border-bottom: 2px solid #fff;
@@ -78,6 +82,10 @@ text {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.placeholder{
+  color: #fff;
 }
 
 .index-text text {

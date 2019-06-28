@@ -10,34 +10,23 @@
             <image src="{{banner_3}}"></image>
         </swiper-item>
     </swiper>
-    <view class="index-content"  style="margin-top:-70rpx">
-        <view class="sign half">
-            <view class="text" bindtap="sign">
-                <text>今日签到</text>
-            </view>
-            <view class="shadow"></view>
-        </view>
+    <view class="index-content"  style="margin-top:1rem">
+       
         <view class="start half">
-            <view class="text" bindtap="start">
+            <view class="text" style="margin-top:1rem" >
+              <input placeholder="请输入姓名" placeholder-class="placeholder" bindinput="realname_input"></input>
+            </view>
+
+             <view class="text"style="margin-top:5rem" >
+              <input placeholder="请输入手机号码" placeholder-class="placeholder" bindinput="phone_input"></input>
+            </view>
+            <view class="text" style="margin-top:8rem" bindtap="start">
                 <text>开始答题</text>
             </view>
             <view class="shadow"></view>
         </view>
     </view>
-    <view class="index-content">
-        <view class="study half">
-            <view class="text"  catchtap='study'>
-                <text>学习知识</text>
-            </view>
-            <view class="shadow"></view>
-        </view>
-        <view class="explan half" catchtap='rubbish'>
-            <view class="text">
-                <text>垃圾分类</text>
-            </view>
-            <view class="shadow"></view>
-        </view>
-    </view>
+   
     <view class="index-text">
         <text>贵州省发展和改革委员会主办</text>
         <text>贵阳市发展和改革委员会承办</text>

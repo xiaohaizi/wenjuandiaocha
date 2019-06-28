@@ -1,12 +1,12 @@
 <?php
 namespace app\api\controller;
 
-class Index
+class Login
 {
     public  function LoginIn(){
         
         $data["ticket"]="111";
         $data["integral"]="1";
-        return $data;
+        return json_encode($data);
     }
 }

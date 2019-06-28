@@ -5,10 +5,21 @@ Page({
         banner_1: "../../images/banner/banner_1.jpg",
         banner_2: "../../images/banner/banner_2.jpg",
         banner_3: "../../images/banner/banner_3.jpg",
+      realname:"",
+      phone:"",
         // banner_1: "https://www.gmoai.top/Resources/banner/banner_1.jpg",
         // banner_2: "https://www.gmoai.top/Resources/banner/banner_2.jpg",
         // banner_3: "https://www.gmoai.top/Resources/banner/banner_3.jpg",
     },
+  realname_input: function (e) {
+
+    this.data.realname = e.detail.value;
+    console.log(e.detail.value);
+  },
+  phone_input:function(e)
+  {
+    this.data.phone = e.detail.value;
+  },
     onShareAppMessage: function (options){
       return {
         title: '节能有我，一起来答题，赢取精美礼品',
@@ -26,6 +37,23 @@ Page({
       }
     },
     start: function (event) {
+      if(this.data.realname.length<1){
+        wx.showToast({
+          title: '请输入姓名',
+          icon:"none",
+        });
+        return;
+      }
+
+      if (this.data.phone.length <11) {
+        wx.showToast({
+          title: '请输入手机号',
+          icon: "none",
+        });
+        return;
+      }
+
+
         wx.navigateTo({
             url: "../../pages/answer/answer-loading/answer-loading"
         })
