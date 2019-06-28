@@ -48,7 +48,7 @@ App({
   },
   globalData: {
     userInfo: null,
-    domain: 'https://www.gmoai.top/',
+    domain: 'https://xiaochengxu.haicode123.com',
     ticket:''
   }
 })

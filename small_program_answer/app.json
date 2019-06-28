@@ -17,7 +17,6 @@
     "navigationBarTextStyle": "white"
   },
   "tabBar": {
-
     "selectedColor": "#22a415",
     "list": [
       {
@@ -33,5 +32,6 @@
         "selectedIconPath": "images/icon/mine_s.png"
       }
     ]
-  }
+  },
+  "sitemapLocation": "sitemap.json"
 }

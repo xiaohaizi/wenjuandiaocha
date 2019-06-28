@@ -23,7 +23,7 @@ function Requset(url,method,data,callback){
     data:data,
     header: {
       'Cookie': app.globalData.ticket,
-      'content-type': 'application/json' // 默认值
+      "Content-Type": "application/x-www-form-urlencoded" // 默认值
     },
     success: callback,
     fail:function(res){
