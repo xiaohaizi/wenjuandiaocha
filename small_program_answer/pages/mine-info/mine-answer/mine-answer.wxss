@@ -1,0 +1,40 @@
+page {
+    background: #eee;
+}
+
+.mine {
+    margin: 0;
+}
+
+.mine:first-child {
+    border-top: none;
+    margin-bottom: 10px;
+}
+
+.mine .num {
+    margin-left: auto;
+    color: #eb8215;
+    font-size: 18px;
+}
+
+.mine .ti {
+    margin-right: 10px;
+}
+
+.mine .check {
+    margin-left: auto;
+    margin-right: 10px;
+}
+
+.mine .answer-true {
+    margin-left: auto;
+}
+
+.mine .true-total {
+    color:#eb8215;
+    margin-right: 10px;
+}
+
+.mine .answer {
+    margin-left: 0;
+}

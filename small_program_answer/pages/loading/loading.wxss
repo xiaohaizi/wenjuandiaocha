@@ -1,0 +1,5 @@
+.load-img {
+    width: 750rpx;
+    height: 1207rpx;
+    display: block;
+}

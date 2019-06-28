@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>贵州省暨贵阳市2018年节能宣传周 小程序答题抽奖活动中奖名单</title>
+    <script src='jquery-3.3.1.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+    <script>
+        var employees = [{
+                "name": "竹笛雅韵",
+                "imgSrc": "https://wx.qlogo.cn/mmopen/vi_32/FVjBmI6cpwLc60rNkbPveibcAtFAeXvjpekGF338lwia47pr653LPmq3A1LPicphK21icZAEleZkNfcDZ9zAE2S4Ug/132"
+            },
+            {
+                "name": "风云",
+                "imgSrc": "https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTLJyu4c35MpnUFNwTE8EqMYgwQ4hCZM1IbCHZIZlv8RccrlIIric2iby4evKXl1w2RQxKKNqbI3ViaHg/132"
+            },
+            {
+                "name": "冯道彬",
+                "imgSrc": "https://wx.qlogo.cn/mmopen/vi_32/NKcmgpqY6MEGharCKnbtEDNn7UUKdvoLZwF2yN2GjWUmoBjj8ncxIicP7U1x5gJrrCMibD0VloDiaGH0l0C5Xrv2w/132"
+            },
+            {
+                "name": "M张戚戚",
+                "imgSrc": "https://wx.qlogo.cn/mmopen/vi_32/eYjTiay0HG6KakG2bo4dxAyguan32W7YoXAeOMmCxja1xnJiaduKwS8zooXSBOV5hRc1v2pJuOargVfaAva82oMw/132"
+            },
+            {
+                "name": "yy",
+                "imgSrc": "https://wx.qlogo.cn/mmopen/vi_32/P7xZRv9rS2vIcFbU5lDFcric8ek4LVym3PhR25Xb7uA5SuPVvZjyaRiabbic8P6zBS5E37fTptJs7eO3iasTu9UoIQ/132"
+            },
+            {
+                "name": "H Qin",
+                "imgSrc": "https://wx.qlogo.cn/mmopen/vi_32/UK1XW0tOGdFVibsmMK7ibcnyxc1PKmZUIkxUCBVymGBjb6fBwphMXRdc3I0Ln5vQBkeX9GwLYcicBy6lqEUxSd8hQ/132"
+            },
+            {
+                "name": "Ersairy",
+                "imgSrc": "https://wx.qlogo.cn/mmopen/vi_32/k1OQFp2kIpWEqS97qCwibRTwSd2y36qpj7z3ABnsv2IkBOyLPeNibVAQ4ULEcgiaD1Nj6iaZiaWS8Byb8HKazVx4FTg/132"
+            },
+            {
+                "name": "阳光",
+                "imgSrc": "https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTLCqCha3LjSczSBajrEtCPcqIAjCdqbFtibpZHDyFg8acEUvMYSSkz1KaWicLSha9uXIxzWD9BLr5Nw/132"
+            },
+            {
+                "name": "黃莉",
+                "imgSrc": "https://wx.qlogo.cn/mmopen/vi_32/tvwXcib7NFMgia87uQ8prWicxYl55icJibZxGeHicTMWHZu0LpGOuI2RFibqJI7vlib7Gv4fMsDKQSv5oV3XLtFnpqzbzA/132"
+            },
+            {
+                "name": "淼淼",
+                "imgSrc": "https://wx.qlogo.cn/mmopen/vi_32/Tf0O3KAVCpU55ppTIrOvWTcVydjGybvxLbib1QLY5d1Pb78RZrIg3rD6L3lS9CQJ60pn1dK5Sz9xpEBzbLg5YWQ/132"
+            },
+            {
+                "name": "袁",
+                "imgSrc": "https://wx.qlogo.cn/mmopen/vi_32/mRkCcdwZfOJfd85ouqzTDCjQxp1AK4TD9YtCclCb2kJSOu3fPV8icD9iaHuoxknv3kTKAKs3icpgGNQF86syb2WpA/132"
+            },
+            {
+                "name": "老高",
+                "imgSrc": "https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTLVdxX8ycPxaOHn0oQxHicJGwKqMHh8lrfyNfcqiajpNb4BSIXqbnrmUfibVaVsR9rT6bDhzN8pOlyTQ/132"
+            },
+            {
+                "name": "应念前尘",
+                "imgSrc": "https://wx.qlogo.cn/mmopen/vi_32/PiajxSqBRaEJDHGxYQwyWUYz6CLibpzh0y7P9GEJyticX5WtROLyB54C7xqDzDQRKKiaYwkAutVdHTLjhxiaHE0MQDw/132"
+            },
+            {
+                "name": "花啦啦",
+                "imgSrc": "https://wx.qlogo.cn/mmopen/vi_32/iaZjI9N2ibibafzghRM0EyX4LyZ6LwIXY3F4ph8aBpuh5FxG3HxQgWc4z1gaPUYnFKEYTvMlEuhxtjH6ArGeQOlVA/132"
+            },
+            {
+                "name": "萧湘竹",
+                "imgSrc": "https://wx.qlogo.cn/mmopen/vi_32/6LMUKXmCOeb42SpbxyrDo5eqmz4yPcyu8edUAvP5ycXN97eGyuWwoFXVIbFZh54fnfibartBQibQFLGghGWfYhwA/132"
+            },
+            {
+                "name": "YOU",
+                "imgSrc": "https://wx.qlogo.cn/mmopen/vi_32/DYAIOgq83eoFkYic0RzPfgC56NoIL6hxFhNLPykwPPeVtyhBe31Dbr9GKB90iaSZsITy9WT4fO4A4QkFnJoPduHg/132"
+            },
+            {
+                "name": "我自倾怀",
+                "imgSrc": "https://wx.qlogo.cn/mmopen/vi_32/DqzHvk0JLEr0u2lsaZv1johEtOx9W6KbWKP9CEEichCaicdGNEs1ARbYAhQZKz8IcaH8iamoe9LaLmD4zyI88NDGw/132"
+            },
+            {
+                "name": "小雨",
+                "imgSrc": "https://wx.qlogo.cn/mmopen/vi_32/vJUCV2sN5icslkEUBwh91z2fCCwr09q2icBrUOKajJz60yHOqXibsicSsC7m57Dny3cEhP6icoclBicGWFGaWaAicGqsQ/132"
+            },
+            {
+                "name": "东家",
+                "imgSrc": "https://wx.qlogo.cn/mmopen/vi_32/DYAIOgq83eo6wfaXZp5fMH4AGIuXqG1S68E71FJ3X6nCvOic4Y91lJB5zrMasgJXU8fGD7akcFOKe13akqaBNFA/132"
+            },
+            {
+                "name": "Better. man",
+                "imgSrc": "https://wx.qlogo.cn/mmopen/vi_32/9su2uGAH50ROmohS17A0PmTmiaqgSWvpRMqS5lBkEUmC1XFQDrlv7EHIfmWMSp2rujL3kaTrsyCzJmbZQ29Txqw/132"
+            },
+            {
+                "name": "古月",
+                "imgSrc": "https://wx.qlogo.cn/mmopen/vi_32/LuklDxib0BsBLLKcsoGL1q7vs6ia8Q4Pekpia5WhM5wrKMGCVGZNkdscQyaMXlvJdtQY8CvOV2mO4u808d0icoCWVQ/132"
+            },
+            {
+                "name": "顺哥",
+                "imgSrc": "https://wx.qlogo.cn/mmopen/vi_32/wz3r6kUspYXmyJyrFhXy6iaTRa6IJffIgbHj9KqnTiaBSaP5bLm2VUr4hmvuGiaZTXWjqQmOEcVnrzc6Oomvdf7Pw/132"
+            },
+            {
+                "name": "忽然而已",
+                "imgSrc": "https://wx.qlogo.cn/mmopen/vi_32/In1psXqVpsZ83BpiaqWtxnSQyCCkbanTKQNpBziaO10icpiaPcic8ljueLUbyTxKaz71pKemK4GYichuPYH3L5vZ5bNA/132"
+            },
+            {
+                "name": "单晓娅",
+                "imgSrc": "https://wx.qlogo.cn/mmopen/vi_32/qk96ia3T2W1CCplqGDh17qxyVbuazQAZYrvECZdhia2ibINFjziaMJdc8jdAEjuYfpHl5JRK6BciaSAadCQ5bpzDHzQ/132"
+            },
+            {
+                "name": "我其实不",
+                "imgSrc": "https://wx.qlogo.cn/mmopen/vi_32/4Dvae1AH4uCzBCKqjlW4zF3x2xynUZhthsQfLDTrI5rWDcUGyv34ugenXAXuvdXEXMZEJ6qB31FHHyRsFUpJKA/132"
+            },
+            {
+                "name": "简单",
+                "imgSrc": "https://wx.qlogo.cn/mmopen/vi_32/usrW82nKVv5NmRlaAyuKsakNibIVh5oUILf9e4ocFEK9BB3n42x7xOcSlckSmLXP8b7Fl5B5k4VopjXicVVY1HQQ/132"
+            },
+            {
+                "name": "韩爽",
+                "imgSrc": "https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTJSjECjBn0DJ8LYdp4dDIZLiauuBgicJCxbb4YoSo0u49FDHBicPic9oTUMqoXBQ4F84oibpCZARwlsATw/132"
+            },
+            {
+                "name": "我的真名你都以为是网名了。",
+                "imgSrc": "https://wx.qlogo.cn/mmopen/vi_32/PiajxSqBRaEI4NHRLWKGEmErOuul4z8ib0kc0wVrNBUH5OlbUGdTHNg50sCVReh7WSH8W4wPXOCVpwmGDk1gU9mA/132"
+            },
+            {
+                "name": "鑫",
+                "imgSrc": "https://wx.qlogo.cn/mmopen/vi_32/eVHqj73NxFoosO6MNg7Og4NjrYz3yXoLgJkD6R9qv1EeI9W48mBP8q7bTAQN58rZ9OibocDY9fKflUREkEXrFoQ/132"
+            },
+            {
+                "name": "林萌",
+                "imgSrc": "https://wx.qlogo.cn/mmopen/vi_32/IicdXDFYewkibUianuKBoalg8sgzPQTm3P5R8OoUO5BmTl8pJkj0nZuajJ4QRttjUPtHyU9VUmDpDVmmN4gLU2vVg/132"
+            },
+            {
+                "name": "豆腐",
+                "imgSrc": "https://wx.qlogo.cn/mmopen/vi_32/fV8GUwIaZjY9thmozicicn09e6TPw15cxrbrRdib6alNHc7WQscHIiaB5C8JYCh6icS3xibpjibicyg3ByicnVR2xCeXMiaw/132"
+            },
+            {
+                "name": "海燕z",
+                "imgSrc": "https://wx.qlogo.cn/mmopen/vi_32/pvZyyVm2PDwF8zoKeJQXJtgpxRw0gBXXEswgibI7s7f4XeNBVZVPfX9XQFyIbYKVqzpxAJdpIo8kNRA21Cbbu3Q/132"
+            },
+            {
+                "name": "edd",
+                "imgSrc": "https://wx.qlogo.cn/mmopen/vi_32/CDp3Ys2RgGNQWYVesCtcgKK3tYWxHUdXkRtu83ib3kcQ7IQ5MS0G9tGcorPjy94U3bPnfozhyJz3R7lwgTbw5Ew/132"
+            },
+            {
+                "name": "哎哟喂冉",
+                "imgSrc": "https://wx.qlogo.cn/mmopen/vi_32/d4PKvl9OpiaMupLmqGSicU3no8Su5j0LJH8GNWI4xtQFnyjeCpRWibrL0g9KlnhfoAHc9UFvwfwz2u1VOd8Ka4FKg/132"
+            },
+            {
+                "name": "千北之畔",
+                "imgSrc": "https://wx.qlogo.cn/mmopen/vi_32/iaRJUUzpX2D4dc9JxBVgYPQrr0V1tsia8w3FeNiaPrF7ria9AxFj6AsywhYGstryj0E6gicnDRmlS3icklb8kR5giaOTw/132"
+            }, {
+                "name": "廖小瞭",
+                "imgSrc": "https://wx.qlogo.cn/mmopen/vi_32/31j3PQJ1y8tHXHqJHicFagCEEcmuMIWAxSu9ZgYbcWa92VwDeGJ5PW95ch9Lad8x1caia5viaEqKgyuIBQeUGD0ibw/132"
+            },
+            {
+                "name": "zou",
+                "imgSrc": "https://wx.qlogo.cn/mmopen/vi_32/1CGGf8ak1k6KVLcTHpjiaT7gTT2zf12OQB9NFGrgeohXkPLZwTQPInlPaHfeH9PaNWUMylbRDWmJpHhjsbcVYcA/132"
+            },
+            {
+                "name": "沙海飘流",
+                "imgSrc": "https://wx.qlogo.cn/mmopen/vi_32/DYAIOgq83eoUiajJoXraNG87nCkpUHyqmnKs0swjibibe6Bq45Uib4QyDKDMcDGuJ3gd7gNZZ2Zn3NaZBF8BYOoFIw/132"
+            },
+            {
+                "name": "杨烓荧",
+                "imgSrc": "https://wx.qlogo.cn/mmopen/vi_32/1zRga2SQKvoo88ib141RGt8nF8wFiagInMyWHgicepHOtTUicQDHowrTr3ovnwUDNUqeBjATqC4MLRQQ8NOhfxUaug/132"
+            },
+
+            {
+                "name": "素履",
+                "imgSrc": "https://wx.qlogo.cn/mmopen/vi_32/6mvj9icxEYfKzV9aGskYialzUvbiaR8urtlITU85Mib4azrM8PibicX2fwicZNLibGcCrJ6wL2hGicRuQTFQW2oujBialTSA/132"
+            }, {
+                "name": "后窗",
+                "imgSrc": "https://wx.qlogo.cn/mmopen/vi_32/ajUibIWawv66pUgEXWU28U7CKpNHTB3Sqs7L7GBice1wvEibjpnPvCBGJuNUToTHC4qhzepHUwq7V9HKIM5kpAqog/132"
+            },
+            {
+                "name": "无名01",
+                "imgSrc": "https://wx.qlogo.cn/mmopen/vi_32/I9y7s17P9liaOa5tkxZdmI4QcvL13UpysCfvhgh42Df1IYBzqSzibnwW0LZGCtkAWnOkS2yRJ7DNBwpJLrS8wZ1A/132"
+            },
+            {
+                "name": "no col",
+                "imgSrc": "https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTL1f4iafu3zqus8l2LDWGS2jwmobLsDZfaJsricGhEa6Z8Jia3CTmCwicuI6EHlRBKicI2CXEcVZgyzBdA/132"
+            },
+            {
+                "name": "漠河之春",
+                "imgSrc": "https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTLFI3MbOTJw4rXmPVenbQJicOryGy7gNzOpO4rSAX205AEWDqia3NFtbwaniaHhYlXKicCCBlwDZwFF6g/132"
+            },
+            {
+                "name": "apoloy",
+                "imgSrc": "https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTJpsRZeK5XCA2CLjqSwG3c4DHOwRSzbCl8FvWvjM2xk8LWuwbYJic8vWn5U3ZribfmJ6J0daOVMhShQ/132"
+            },
+            {
+                "name": "明",
+                "imgSrc": "https://wx.qlogo.cn/mmopen/vi_32/Jq3Jj9R5DDbT0ozwPibSdzbGJ1QqjX2cMluH2stz4GLib8xzEzn0tAo5PcNeMBbvOnngiciaIYOwxS0pA6AASpfjag/132"
+            },
+            {
+                "name": "张兴",
+                "imgSrc": "https://wx.qlogo.cn/mmopen/vi_32/p2VcE3ngdBK23PCQsfOZqHFSoD3nxc0FBL8Iiby8ZxibEQIJe2LrBYiaKQLUR2U9OSRh0CdeqIJibHS4EPN4uLbhpg/132"
+            },
+            {
+                "name": "沉迷工作的条纹酸奶",
+                "imgSrc": "https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTKUWdGOkmDx603fCJs2vkuusBEwRAljgF6muJxNvBiaXicb2C5vw53gLsel8hSSxKs3xdYdN5exbf9g/132"
+            },
+            {
+                "name": "zhouxj",
+                "imgSrc": "https://wx.qlogo.cn/mmopen/vi_32/EAaHfT0QeVaoth5N0NfMkJlkeL2gWNsUv72p86PWBibA2RqMpKrbStE1pdCsY0kLpwy8kjdG3kgABdRiaXTWr48A/132"
+            },
+            {
+                "name": "春风拂过",
+                "imgSrc": "https://wx.qlogo.cn/mmopen/vi_32/33AAspqrCQxI1qJzRTtfDvoKlKD69cqqXosCMib48HJqoKeJKNcCUa2rUzvyy2icdhC53rGOekBTtxTVl1DOyicZw/132"
+            }
+        ];
+
+        $(function () {
+            for (var i = 0; i < 50; i++) {
+                $(".container").append("<div class='content'><img src='" + employees[i].imgSrc + "' alt=''><p>" +
+                    employees[i].name + "</p></div>")
+            }
+            $(".close").click(function () {
+                $(".shadow").fadeOut();
+            })
+        })
+    </script>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            font-family: 'microsoft yahei'
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            /* background: url(a.jpg) no-repeat top center/100% rgba(0, 0, 0, 0.5); */
+            background: url(b.jpg) no-repeat top /cover;
+        }
+
+        img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+        }
+
+        .container p {
+            width: 100%;
+            height: 25px;
+            margin-top: 10px;
+            text-align: center;
+            color: #2b2b2b;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 50px;
+            /* width: 1500px; */
+        }
+
+        .content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 150px;
+            margin: auto 10px;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            color: #fff;
+            font-size: 26px;
+            margin: 20px 10px;
+            text-align: center;
+        }
+
+        h2 {
+            color: #fff;
+            font-size: 18px;
+        }
+
+        .shadow {
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            color: #fff;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .close {
+            display: flex;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: url(close.png) no-repeat center /50% #fff;
+            position: absolute;
+            right: -20px;
+            top: -20px;
+            color: #7b7b7b;
+            font-size: 40px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .info {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 90%;
+            background: #515151;
+            height: 400px;
+            border-radius: 10px;
+            box-shadow: 5px 5px 25px #333;
+            position: relative;
+            max-width: 350px;
+        }
+
+        .shadow p {
+            color: #fff;
+            margin: 0 20px;
+            line-height: 30px;
+        }
+
+        .abc {
+            text-indent: 2em;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="shadow">
+        <div class="info">
+            <p class="abc">请获得由贵州省发展和改革委员会主办，贵阳市发展和改革委员会承办的2018年贵州省暨贵阳市节能宣传周答题小程序的获奖用户于6月13日至6月20日(节假日除外)上午9点至下午5点到贵阳日报传媒集团22楼贵阳网编辑部，从微信答题小程序中出示头像及微信名，领取参加小程序的奖品。
+            </p>
+            <p>联系人：</p>
+            <p>李麟华 18798004476</p>
+            <p>陈鸿博 13618581955</p>
+            <div class="close"></div>
+        </div>
+    </div>
+
+    <h1>贵州省暨贵阳市2018年节能宣传周</h1>
+    <h2>小程序答题抽奖活动中奖名单</h2>
+    <div class="container">
+    </div>
+
+
+</body>
+
+</html>

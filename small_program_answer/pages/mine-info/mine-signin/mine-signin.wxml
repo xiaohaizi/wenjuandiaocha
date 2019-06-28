@@ -1,0 +1,13 @@
+<view class="container">
+    <view class="mine">
+        <image class="mine-signIn-icon mine-img" src="../../../images/icon/signin_b.png"></image>
+        <text class="total">总计签到天数：</text>
+        <text class="num">{{SingDay}}</text>
+        <text class="ti">天</text>
+    </view>
+    <view class="mine" wx:for="{{SignDate}}">
+        <image class="mine-signIn-icon mine-img" src="../../../images/icon/signin_b.png"></image>
+        <text class="date">{{item}}</text>
+        <text class="check" style="color:#eb8215">已签到</text>
+    </view>
+</view>

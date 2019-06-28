@@ -1,0 +1,84 @@
+page {
+  background: #eee;
+}
+
+.answer-info {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  height: 100rpx;
+  line-height: 100rpx;
+  margin: 20px 0;
+}
+
+.answer-ques {
+  width: 200rpx;
+  height: 100rpx;
+  display: block;
+  background: red;
+  text-align: center;
+  border: 1px solid #fff;
+}
+
+.answer-left {
+  border-radius: 10px 0 0 10px;
+  background: #3b7ccb;
+  color: #fff;
+  border-right: none;
+}
+
+.answer-right {
+  border-radius: 0 10px 10px 0;
+  background: #eb8125;
+  color: #fff;
+}
+
+.answer-text {
+  width: 96%;
+  padding: 3%;
+  background: #fff;
+  font-size: 14px;
+  margin-top: 20rpx;
+  margin-bottom: 60rpx;
+}
+
+.answer {
+  width:70%;
+  height:110rpx;
+  background:#fff;
+  margin:20rpx auto;
+  border-radius:7px;
+  padding:0 20rpx;
+  font-size:14px;
+  display: flex;
+}
+
+.answer text {
+  display: flex;
+  align-items:center;
+}
+
+.container .select {
+  background: #4ac936;
+  color: #fff;
+}
+
+.next {
+  height: 80rpx; 
+  display: flex;
+  color: #fff;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50rpx;
+}
+
+.next text {
+  display: flex;
+  background: #6ac720;
+  width: 180rpx;
+  justify-content: center;
+  height: 80rpx;
+  border-radius: 7px;
+  align-items: center;
+  box-shadow:  0px 0px 10px 3px #ccc;
+}

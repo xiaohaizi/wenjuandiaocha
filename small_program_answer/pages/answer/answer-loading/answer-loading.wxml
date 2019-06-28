@@ -1,0 +1,29 @@
+<view class="container">
+    <view class="loading-title">
+        <text>活动简介</text>
+    </view>
+    <view class="loading-text">
+         <text>为提高全民节能低碳意识，培养全民节能低碳习惯，由贵州省发展和改革委员会主办，贵阳市发展和改革委员会承办的2018年贵州省暨贵阳市节能宣传周系列活动将于6月10日陆续上线启动，活动将以“节能降耗 保卫蓝天”为主题，通过群众喜闻乐见的各种宣传形式，普及节能低碳、绿色发展理念和知识，形成崇尚节约、合理消费与低碳环保的社会风尚，加快推动形成节约适度、绿色低碳、文明健康的生活方式和消费模式。
+        </text>
+        <text>启动仪式当天，现场将设置节能低碳宣传展区，展示生态文明、长江经济带发展、资源利用和节能减排等工作成效，以及开展趣味定向赛等多方位践行节能低碳理念的活动，主办方制作了微信答题小程序为活动预热，市民可使用手机微信答题，参与节能低碳行动，赢取精美礼品。</text> 
+    </view>
+    <view class="loading-introduce" catchtap="ShowIntroduce">
+        <text>规则说明</text>
+    </view>
+    <view class="loading-start">
+        <text catchtap="answer">开始答题</text>
+    </view>
+    <view class="introduce" style="{{show}}" >
+        <view class="introduce-container">
+            <text class="introduce-title">规则说明</text>
+            <text class="introduce-text">一、本答题只针对贵州省暨贵阳市2018年节能宣传周活动有效
+            二、所有题目答案选项均为选择题，每天三组题，每组十道题，每题三个选项。每题答对积一分，答完一组题计分
+            三、每日签到积一分，每日可签到一次
+            四、答题以普及低碳节能知识为目的，在节能宣传周启动仪式当天将从本次活动积分前200名用户中抽出50名幸运答友，送上精美礼品一份
+            五、本次答题积分累计至2018年6月10日0点止，以提交时间为准，逾期无效
+            六、启动仪式次日，将在贵阳市发改委官网、微信公众号上公布中奖名单，中奖用户请及时与承办方联系，一周内未领取奖品视为自动放弃
+            七、本活动解释权归贵阳市发改委所有，联系电话：0851—85865934</text>
+            <text bindtap="HideIntroduce" class="introduce-close">关闭</text>
+        </view>
+    </view>
+</view>

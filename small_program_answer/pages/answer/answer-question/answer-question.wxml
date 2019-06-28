@@ -1,0 +1,18 @@
+<view class="container">
+    <view class="answer-info">
+        <view class="answer-left answer-ques">
+            <text class="answer-num">第{{questionIndex+1}}题</text>
+        </view>
+        <view class="answer-right answer-ques">
+            <text class="answer-true">共计{{questionBank.length}}题</text>
+        </view>
+    </view>
+    <text class="answer-text">{{questionShow.ProblemTitle}}</text>
+    <view class="answer {{ChooseId==item.Id?'select':''}}" wx:for="{{questionShow.answers}}" data-optionsid="{{item.Id}}" data-optionscontent="{{item.OptionsContent}}" bindtap='userChoose'>
+        <text>{{item.OptionsContent}}</text>
+    </view>
+    <!--新增内容  -->
+    <view class="next">
+      <text bindtap="userConfirm">{{next}}</text>
+    </view> 
+</view>

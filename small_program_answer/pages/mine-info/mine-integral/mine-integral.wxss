@@ -1,0 +1,40 @@
+page {
+    background: #eee;
+}
+
+.mine-backgr .user {
+    margin-top: 50px;
+    margin-bottom: 0px;
+}
+
+.mine {
+    margin: 0;
+}
+
+.mine-info {
+    flex-direction: row;
+    margin-top: 10px;
+    justify-content: center;
+    display: flex;
+}
+
+.mine-flag {
+    width: 70rpx;
+    height: 70rpx;
+    vertical-align: middle;
+    margin-left: -30rpx;
+}
+
+.mine-info text {
+    line-height: 70rpx;
+    font-size: 18px;
+}
+
+.mine .num {
+    margin-left: auto;
+    color: #eb8125
+}
+
+.mine .ti {
+    margin-right: 10px;
+}

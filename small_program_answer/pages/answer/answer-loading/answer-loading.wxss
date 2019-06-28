@@ -1,0 +1,119 @@
+/* pages/answer/answer-loading/answer-loading.wxss */
+
+page {
+    background: url(https://www.gmoai.top/Resources/load-background.jpg) no-repeat top center /cover;
+}
+
+view {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.loading-title {
+    margin-top: 60rpx;
+    background: url(https://www.gmoai.top/Resources/green-flag.png) no-repeat top center /cover;
+    width: 713rpx;
+    height: 125rpx;
+    margin-bottom: 38rpx;
+    display: flex;
+    justify-content: center;
+}
+
+.loading-title text {
+    color: #fff;
+    margin-top: 30rpx;
+}
+
+.loading-text {
+    width: 80%;
+    height: 715rpx;
+    padding: 0 10%;
+    font-size: 28rpx;
+    color: #5b5b5b;
+    margin-top: 25rpx;
+}
+
+.loading-text text {
+    font-size: 28rpx;
+    text-indent: 2em;
+    margin-bottom: 10px;
+}
+
+.loading-introduce {
+    width: 140rpx;
+    height: 60rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 15rpx 0;
+    margin-left: auto;
+    margin-right: 30rpx;
+    background: #9e9e9e;
+    border-radius: 12rpx;
+}
+
+.loading-introduce text {
+    font-size: 26rpx;
+    color: #fff;
+}
+
+.loading-start {
+    width: 194rpx;
+    height: 66rpx;
+    background: #25AEEB;
+    justify-content: center;
+    border-radius: 14rpx;
+}
+
+.loading-start text {
+    color: #fff;
+}
+
+.introduce {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.introduce-container {
+    width:620rpx;
+    height:920rpx;
+    position:absolute;
+    top:0;
+    right:0;
+    bottom:0;
+    left:0;
+    margin:auto;
+    background:#fff;
+    border-radius:20rpx;
+    padding:20rpx;
+    box-shadow:0 0 5px #eee;
+    border:2px solid #eee;
+
+}
+
+.introduce-container .introduce-title {
+    letter-spacing:6px;
+    font-size:42rpx;
+    margin-top:20rpx;
+    margin-bottom: 30rpx;
+}
+
+.introduce-text {
+    width: 620rpx;
+    height: 720rpx;
+    overflow: hidden;
+    font-size: 28rpx;
+}
+
+.introduce-close{
+    margin-top:auto;
+    margin-bottom:25rpx;
+}

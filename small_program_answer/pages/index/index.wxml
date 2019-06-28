@@ -1,0 +1,45 @@
+<view class="container">
+    <swiper autoplay="true">
+        <swiper-item>
+            <image src="{{banner_1}}"></image>
+        </swiper-item>
+        <swiper-item>
+            <image src="{{banner_2}}"></image>
+        </swiper-item>
+        <swiper-item>
+            <image src="{{banner_3}}"></image>
+        </swiper-item>
+    </swiper>
+    <view class="index-content"  style="margin-top:-70rpx">
+        <view class="sign half">
+            <view class="text" bindtap="sign">
+                <text>今日签到</text>
+            </view>
+            <view class="shadow"></view>
+        </view>
+        <view class="start half">
+            <view class="text" bindtap="start">
+                <text>开始答题</text>
+            </view>
+            <view class="shadow"></view>
+        </view>
+    </view>
+    <view class="index-content">
+        <view class="study half">
+            <view class="text"  catchtap='study'>
+                <text>学习知识</text>
+            </view>
+            <view class="shadow"></view>
+        </view>
+        <view class="explan half" catchtap='rubbish'>
+            <view class="text">
+                <text>垃圾分类</text>
+            </view>
+            <view class="shadow"></view>
+        </view>
+    </view>
+    <view class="index-text">
+        <text>贵州省发展和改革委员会主办</text>
+        <text>贵阳市发展和改革委员会承办</text>
+    </view>
+</view>
