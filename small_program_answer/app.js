@@ -48,7 +48,7 @@ App({
   },
   globalData: {
     userInfo: null,
-    domain: 'https://xiaochengxu.haicode123.com',
+    domain: 'https://xiaochengxu.haicode123.com/',
     ticket:''
   }
 })
@@ -63,5 +63,5 @@ function SubUserInfo(userinfo, code,callback) {
     Country: userinfo.country,
     code: code
   }
-  util.Requset("Phone/Login/LoginIn", "POST", data, callback);
+  util.Requset("api/Login/LoginIn", "POST", data, callback);
 }
