@@ -10,8 +10,12 @@
     <text class="answer-text">{{questionShow.ProblemTitle}}</text>
     <view class="answer {{ChooseId==item.Id?'select':''}}"
      wx:for="{{questionShow.answers}}" 
-     data-optionsid="{{item.Id}}" data-optionscontent="{{item.OptionsContent}}" bindtap='userChoose'>
+     data-optionsid="{{item.Id}}" data-right="{{item.flag}}" 
+     data-optionscontent="{{item.OptionsContent}}" bindtap='userChoose'>
         <text>{{item.OptionsContent}}</text>
+    </view>
+    <view class="choose_tip">
+      <text>{{tip_message}}</text>
     </view>
     <!--新增内容  -->
     <view class="next">

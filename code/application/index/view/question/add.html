@@ -1,0 +1,158 @@
+{extend name="Public/main" /}
+<!--主题内容-->
+{block name="main"}
+<div class="layui-fluid">
+    <div class="layui-row">
+        <form class="layui-form" id="question_form">
+            <div class="layui-form-item">
+                <label for="L_email" class="layui-form-label">
+                    <span class="x-red">*</span>题目名称
+                </label>
+                <div class="layui-input-block">
+                    <input type="text" id="L_title" name="title" lay-verify="required" autocomplete="off" class="layui-input">
+                </div>
+
+            </div>
+
+            <div class="layui-form-item">
+                <label for="L_username" class="layui-form-label">
+                    <span class="x-red">*</span>题目类型</label>
+                <div class="layui-input-block">
+                    <select name="q_type" lay-verify="required">
+                        <option value=""></option>
+                        <option value="1">单选</option>
+                        <option value="2">多选</option>
+                        <option value="3">判断</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="layui-form-item">
+                <label for="L_username" class="layui-form-label">
+                    <span class="x-red">*</span>所属题库</label>
+                <div class="layui-input-block">
+                    <select name="question_bank_id" lay-verify="required">
+                        <option value=""></option>
+                        {volist name="qb_list " id="vo" key="key "}
+                        <option value="{$vo.id}">{$vo.title}</option>
+                        {/volist}
+                    </select>
+                </div>
+            </div>
+
+            <div class="layui-form-item">
+                <label for="L_username" class="layui-form-label">
+                    答题时间</label>
+                <div class="layui-input-block">
+                    <input type="text" id="L_times" lay-verify="required" name="times" lay-verify="number" autocomplete="off" value="10" class="layui-input">
+                    <div class="layui-form-mid layui-word-aux">
+                        <span class="x-red">*</span>超过多少秒超时</div>
+                </div>
+            </div>
+
+
+
+            <div class="layui-form-item">
+                <label for="L_username" class="layui-form-label">
+            排序</label>
+                <div class="layui-input-block">
+                    <input type="text" id="L_sort" name="sort" lay-verify="number" autocomplete="off" class="layui-input">
+
+                </div>
+            </div>
+
+
+            <div class="layui-form-item">
+                <label for="L_repass" class="layui-form-label"></label>
+                <button class="layui-btn" lay-filter="add" lay-submit="">添加</button>
+            </div>
+            <fieldset class="layui-elem-field layui-field-title site-title">
+                <legend><a name="admin">问题答案</a>
+                </legend>
+            </fieldset>
+            <div class="layui-row">
+                <div class="layui-btn-group">
+                    <button type="button" class="layui-btn layui-btn-normal" onclick="add_item()">增加答案选项</button>
+
+                </div>
+                <table class="layui-table layui-form" id="answer_table">
+                    <thead>
+                        <tr>
+                            <th>答案内容(必填)</th>
+                            <th style="width: 50px">是否答案</th>
+                            <th style="width: 50px">操作</th>
+                        </tr>
+                    </thead>
+                    <tbody id="answer_table_body">
+
+                    </tbody>
+                </table>
+            </div>
+
+        </form>
+    </div>
+</div>
+</div>
+
+<!--内容结束-->
+{/block}
+<!--111-->
+{block name="script"}
+<script>
+    layui.use(['form', 'layer', 'jquery'],
+
+        function() {
+            $ = layui.jquery;
+            var form = layui.form,
+                layer = layui.layer;
+
+            var url = "{:url('/index/Question/add')}";
+            //监听提交
+            form.on('submit(add)',
+                function(data) {
+                    var content = $("#answer_table_body").children("tr");
+                    if (content.length < 1) {
+                        layer.alert("答案选项不能为空");
+
+                        return false;
+                    }
+                    $.post(url, data.field, function(result) {
+                        if (result.status == 200) {
+                            layer.alert("增加成功", {
+                                    icon: 6
+                                },
+                                function() {
+                                    //关闭当前frame
+                                    xadmin.close();
+                                    // 可以对父窗口进行刷新 
+                                    xadmin.father_reload();
+                                });
+                        } else {
+                            layer.alert("操作失败");
+                        }
+                    }, "json");
+
+                    //发异步，把数据提交给php
+
+                    return false;
+                });
+
+        });
+
+    var table_an_index = 1;
+
+    function add_item() {
+        var form = layui.form;
+        var html = '<tr><td><input class="layui-input" lay-verify="required" name="answer_title[' + table_an_index + ']"></td><td><input type="checkbox" name="answer_right[' + table_an_index + ']" lay-skin="switch" lay-text="ON|OFF" lay-filter="switchTest" value="1"></td><td><button type="button" class="layui-btn layui-btn-sm layui-btn-danger" onclick="del_item(this)"><i class="layui-icon">&#xe640;</i>   </button>      </td></tr>';
+        $("#answer_table_body").append(html);
+        form.render("checkbox");
+        table_an_index = table_an_index + 1;
+    }
+
+
+    function del_item(obj) {
+        $(obj).parents("tr").remove();
+
+    }
+</script>
+{/block}

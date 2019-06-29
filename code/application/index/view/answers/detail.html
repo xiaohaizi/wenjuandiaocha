@@ -1,0 +1,37 @@
+{extend name="Public/main" /}
+<!--主题内容-->
+{block name="main"}
+<div class="layui-card-body layui-table-body layui-table-main">
+    <table class="layui-table layui-form">
+        <thead>
+
+            <tr>
+
+                <th style="width: 50px">序号</th>
+                <th>题目</th>
+                <th>答案</th>
+
+                <th>是否正确</th>
+
+                <th>添加时间</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            {volist name="data_list " id="vo " key="key "}
+            <!---->
+            <tr>
+
+                <td>{$key}</td>
+                <td>{$vo.Question["title"]}</td>
+                <td>{$vo.content}</td>
+                <td>{$vo.is_right}</td>
+                <td>{$vo.create_time}</td>
+                <td> </td>
+            </tr>
+            {/volist}
+        </tbody>
+    </table>
+</div>
+<!--内容结束-->
+{/block}

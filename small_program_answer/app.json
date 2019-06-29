@@ -10,7 +10,8 @@
     "pages/mine-info/mine-integral/mine-integral",
     "pages/other/study/study",
     "pages/other/introduction/introduction",
-    "pages/other/rubbish/rubbish"
+    "pages/other/rubbish/rubbish",
+    "pages/answer/answer-result/answer-result"
   ],
   "window": {
     "navigationBarBackgroundColor": "#6ac720",

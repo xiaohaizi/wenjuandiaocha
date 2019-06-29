@@ -6,18 +6,21 @@
         <form class="layui-form">
             <div class="layui-form-item">
                 <label for="L_email" class="layui-form-label">
-                            <span class="x-red">*</span>名称</label>
-                <div class="layui-input-inline">
-                    <input type="text" id="L_email" name="email" required="" lay-verify="email" autocomplete="off" class="layui-input"></div>
-                <div class="layui-form-mid layui-word-aux">
-                    <span class="x-red">*</span>将会成为您唯一的登入名</div>
+                    <span class="x-red">*</span>题库名称
+                </label>
+                <div class="layui-input-block">
+                    <input type="text" id="L_title" name="title" lay-verify="required" autocomplete="off" class="layui-input">
+                </div>
+
             </div>
             <div class="layui-form-item">
                 <label for="L_username" class="layui-form-label">
-                            <span class="x-red">*</span>排序</label>
-                <div class="layui-input-inline">
-                    <input type="text" id="L_username" name="username" required="" lay-verify="nikename" autocomplete="off" class="layui-input"></div>
+                    描述</label>
+                <div class="layui-input-block">
+                    <textarea class="layui-textarea" name="remarks" rows=""> </textarea>
+                </div>
             </div>
+
 
             <div class="layui-form-item">
                 <label for="L_repass" class="layui-form-label"></label>
@@ -37,25 +40,15 @@
             var form = layui.form,
                 layer = layui.layer;
 
-            //自定义验证规则
-            form.verify({
-                nikename: function(value) {
-                    if (value.length < 5) {
-                        return '昵称至少得5个字符啊';
-                    }
-                },
-                pass: [/(.+){6,12}$/, '密码必须6到12位'],
-                repass: function(value) {
-                    if ($('#L_pass').val() != $('#L_repass').val()) {
-                        return '两次密码不一致';
-                    }
-                }
-            });
-
+            var url = "{:url('/index/Questionblank/add')}";
             //监听提交
             form.on('submit(add)',
                 function(data) {
-                    console.log(data);
+                    //  console.log($(form).serialize());
+                    $.post(url, $(data.form).serialize(), function(result) {
+                        console.log(result);
+                    }, "json");
+
                     //发异步，把数据提交给php
                     layer.alert("增加成功", {
                             icon: 6
@@ -65,7 +58,7 @@
                             xadmin.close();
 
                             // 可以对父窗口进行刷新 
-                            xadmin.father_reload();
+                            window.location.reload();
                         });
                     return false;
                 });

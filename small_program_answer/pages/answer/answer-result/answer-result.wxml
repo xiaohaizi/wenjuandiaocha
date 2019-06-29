@@ -1,0 +1,20 @@
+<view class="container">
+  <view class="heead">答题结果</view>
+  <view class="content">
+
+    <view>
+      <text>您测试的得分</text>
+    </view>
+    <view class="result">
+      <text>{{score}}分</text>
+    </view>
+    <view class="result_info">
+      <text class="error">错{{error_count}}个</text>
+      <text class="right">正确{{right_count}}个</text>
+    </view>
+    <view class="btn_info">
+    <button class="index_btn" bindtap='index_page'>返回首页</button>
+     <button class="result_btn"  bindtap='user_page'>查看答题记录</button>
+    </view>
+  </view>
+</view>

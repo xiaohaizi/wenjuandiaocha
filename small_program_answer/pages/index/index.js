@@ -37,6 +37,12 @@ Page({
       }
     },
     start: function (event) {
+      // app.globalData.phone = "15072433059";
+      // wx.redirectTo({
+      //   url: "../../pages/answer/answer-loading/answer-loading"
+      //  //url:"../../pages/answer/answer-result/answer-result"
+      // })
+      // return ;
       if(this.data.realname.length<1){
         wx.showToast({
           title: '请输入姓名',
@@ -53,14 +59,14 @@ Page({
         return;
       }
       app.globalData.realname=this.data.realname;
-      app.globalData.phone=this.data.phone;
+      app.globalData.phone="15072433059";//this.data.phone;
       util.Requset("api/login/login", "POST",
        { "realname": this.data.realname, "phone": this.data.phone},
        function(data){
-         console.log(data);
-        // wx.navigateTo({
-        //   url: "../../pages/answer/answer-loading/answer-loading"
-        // })
+         //console.log(data);
+        wx.navigateTo({
+          url: "../../pages/answer/answer-loading/answer-loading"
+        })
 
       });
 

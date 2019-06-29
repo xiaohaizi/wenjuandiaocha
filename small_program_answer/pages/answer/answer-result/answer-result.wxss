@@ -1,0 +1,66 @@
+page {
+  background: #eee;
+}
+
+.heead {
+  margin: 0 auto;
+  margin-top: 1rem;
+  text-align: center;
+  background-color: #fff;
+  height: 2rem;
+  line-height: 2rem;
+  width: 90%;
+  border-radius: 0.5rem;
+}
+
+.content {
+  margin: 0 auto;
+  margin-top: 1rem;
+  text-align: center;
+  padding: 1rem;
+  width: 80%;
+  border-radius: 0.5rem;
+  height: 12rem;
+   background-color: #fff;
+}
+.result{
+  margin-top: 2rem;
+  font-size: 18px;
+  font-weight: bold;
+  color: #eb8125;
+}
+.result_info{
+  font-size: 14px;
+  margin-top: 2rem;
+}
+.result_info .error{
+  margin-right: 1rem;
+  color: #eb8125;
+}
+
+.result_info .right{
+  margin-right: 1rem;
+  color: #3b7ccb;
+}
+.btn_info{
+  margin: 0 auto;
+  margin-top: 1rem;
+}
+.index_btn{
+  width: 30%;
+  height: 2rem;
+  background-color: #3b7ccb;
+  float: left;
+  font-size: 12px;
+  line-height: 2rem;
+  color: #fff;
+}
+.result_btn{
+   width: 40%;
+  height: 2rem;
+  background-color: #3b7ccb;
+  float: right;
+  font-size: 12px;
+  line-height: 2rem;
+  color: #fff;
+}
