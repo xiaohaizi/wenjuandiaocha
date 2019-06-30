@@ -31,7 +31,7 @@ swiper image {
 .shadow {
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.35);
+    /*background: rgba(0, 0, 0, 0.35);*/
     position: absolute;
     display: block;
     z-index: 1;
@@ -39,7 +39,7 @@ swiper image {
 }
 
 .half {
-    height: 580rpx;
+    height: 16rem;
     position: relative;
     margin: 30rpx;
     box-shadow: 0 0 5px #333;
@@ -52,21 +52,39 @@ swiper image {
 .text {
     z-index: 2;
     position: absolute;
-    color: #fff;
+    color: #000;
     line-height: 280rpx;
     text-align: center;
 
     width: 100%;
     
 }
+
+.text_btn {
+    z-index: 2;
+   left: 5%;
+
+    position: absolute;
+    top: 1.5rem;
+    color: #fff;
+    line-height: 150rpx;
+    text-align: center;
+    width: 90%;
+    height:150rpx;
+    background: #25AEEB;
+    justify-content: center;   
+    border-radius: 14rpx;
+    
+}
 .text input{
   margin: 0 auto;
-  color: white;
+  border-radius: 0.5rem;
+  color: #000;
   height: 3rem;
   line-height: 3rem;
   font-size: 16px;
-  width: 95%;
-  border-bottom: 1rpx solid #fff;
+  width: 90%;
+  border: 1rpx solid #25AEEB;
 }
 
 
@@ -85,7 +103,7 @@ text {
 }
 
 .placeholder{
-  color: #fff;
+  color: #000;
 }
 
 .index-text text {
@@ -105,3 +123,10 @@ text {
     margin-top: 20rpx;
     margin-bottom: 20rpx;
 }
+.login_btn{
+  margin: 0 auto;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+   width: 90%;
+}
+

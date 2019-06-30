@@ -1,17 +1,13 @@
 <view class="container">
     <view class="mine-backgr">
-        <view class="mine-info">
-            <image class="mine-flag" src="../../images/icon/flag_w.png"></image>
-            <text>当前积分:</text>
-            <text>{{userInfo.integral}}</text>
-        </view>
+       
          <view class="user" wx:if="{{hasUserInfo}}">
             <image class="user-image" src="{{userInfo.avatarUrl}}"></image>
             <text class="user-name">{{userInfo.nickName}}</text>
         </view>
         <view class="user" wx:else>
             <image class="user-image" src="../../images/user-image.jpg"></image>
-            <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo" style="margin-top:10px">
+            <button wx:if="{{!hasUserInfo}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo" style="margin-top:10px">
                 立即登陆
             </button>
         </view> 
@@ -26,19 +22,11 @@
         <button open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="onGotUserInfo">获取用户信息</button> -->
 
     </view>
-    <view class="mine" bindtap="sign">
-        <image class="mine-signIn-icon mine-img" src="../../images/icon/signin_b.png"></image>
-        <text>签到记录</text>
-        <image class="more" src="../../images/icon/more.png"></image>
-    </view>
+   
     <view class="mine" bindtap="answer">
         <image class="mine-answer-icon mine-img" src="../../images/icon/answer.png"></image>
         <text>答题记录</text>
         <image class="more" src="../../images/icon/more.png"></image>
     </view>
-    <view class="mine" bindtap="inte">
-        <image class="mine-integral-icon mine-img" src="../../images/icon/flag_b.png"></image>
-        <text>当前积分</text>
-        <image class="more" src="../../images/icon/more.png"></image>
-    </view>
+   
 </view>

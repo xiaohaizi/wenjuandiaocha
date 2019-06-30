@@ -11,8 +11,9 @@ class Question
         $question = model("Question");
         $answer = model("Answers");
         $question_bank_id = 8;
-        $q_list = $question->where(["question_bank_id" => $question_bank_id])->field("id as qid,title as  qtitle")->order("id desc")->select();
-        $an_list = $answer->where(["question_bank_id" => $question_bank_id])->field("id ,content,question_id,is_right")->order("id  desc")->select();
+        $q_list = $question->where(["question_bank_id" => $question_bank_id])->field("id as qid,title as  qtitle")->orderRaw("RAND()")->limit(10)->select();
+        $q_ids=array_column(  $q_list,"qid");
+        $an_list = $answer->where(["question_bank_id" => $question_bank_id,"question_id"=>array("in",$q_ids)])->field("id ,content,question_id,is_right")->order("id  desc")->select();
 
         foreach ($q_list as  $q_key => $q_item) {
             $question_items = [];
@@ -102,7 +103,35 @@ class Question
             $data["data"]=   $record_info;
         }
         echo json_encode($data);
-
         die;
+    }
+
+
+    /**
+     * 
+     *
+     * @return void
+     */
+    public  function  GetHistoryList(){
+        $phone = input("param.phone");
+        $record_model = model("Record");
+        $member = model("Member");
+
+        $data["status"] = 300;
+        $data["msg"] = "暂无信息";
+        $member_info = $member->where(["phone" => $phone])->find();
+       // $record_list= $record_model->where(["member_id"=>$member_info->id])->field("id ,score,create_time,error_count,right_count")->select();
+        $data["status"] = 200;
+        $data["msg"] = "答题记录信息";
+        $record_list = $record_model->where(["member_id"=>$member_info->id])->field("id ,score,create_time,error_count,right_count")->order("id desc")->paginate(15);
+              
+        foreach( $record_list as $key=>$item){
+            $record_list[$key]["create_time"]=substr( $item["create_time"],0,10);
+        }
+        $data["data"] =   $record_list;
+        echo json_encode($data);
+        die;
+
+
     }
 }

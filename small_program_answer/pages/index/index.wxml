@@ -3,32 +3,30 @@
         <swiper-item>
             <image src="{{banner_1}}"></image>
         </swiper-item>
-        <swiper-item>
-            <image src="{{banner_2}}"></image>
-        </swiper-item>
-        <swiper-item>
-            <image src="{{banner_3}}"></image>
-        </swiper-item>
+       
     </swiper>
     <view class="index-content"  style="margin-top:1rem">
        
         <view class="start half">
             <view class="text" style="margin-top:1rem" >
-              <input placeholder="请输入姓名" placeholder-class="placeholder" bindinput="realname_input"></input>
+              <input placeholder="请输入姓名" placeholder-class="placeholder" bindinput="realname_input"  value="{{realname}}"></input>
             </view>
 
              <view class="text"style="margin-top:5rem" >
-              <input placeholder="请输入手机号码" placeholder-class="placeholder" bindinput="phone_input"></input>
+              <input placeholder="请输入手机号码" placeholder-class="placeholder" bindinput="phone_input" value="{{phone}}"></input>
             </view>
-            <view class="text" style="margin-top:8rem" bindtap="start">
-                <text>开始答题</text>
-            </view>
-            <view class="shadow"></view>
+            <view class="text_btn " style="margin-top:8rem" bindtap="start">
+                <text  >开始答题</text>
+            </view>           
+            
         </view>
-    </view>
-   
+         <view class="text" class="login_btn"  >
+            <button  wx:if="{{!hasUserInfo}}"  open-type="getUserInfo"  bindgetuserinfo="getUserInfo" style="margin-top:10px">
+                立即登陆
+            </button>
+            </view>
+    </view>   
     <view class="index-text">
-        <text>贵州省发展和改革委员会主办</text>
-        <text>贵阳市发展和改革委员会承办</text>
+       
     </view>
 </view>

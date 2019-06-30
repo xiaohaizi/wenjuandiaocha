@@ -6,7 +6,7 @@
 .mine-backgr {
   width: 100%;
   height: 500rpx;
-  background: url(https://www.gmoai.top/Resources/mine-background.jpg) no-repeat top center /cover;
+ 
   margin-bottom: 10px;
 }
 

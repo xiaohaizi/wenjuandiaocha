@@ -7,6 +7,7 @@ App({
   },
   userLogin:function(){
         var that=this;
+        console.log(111)
         // 登录
         wx.login({
           success: data => {
@@ -25,8 +26,13 @@ App({
                 })
                 SubUserInfo(res.userInfo, data.code, function (res) {
                   if (res.data.success) {
-                    that.globalData.ticket=res.data.ticket;
-                    that.globalData.userInfo.integral = res.data.integral
+                    that.globalData.phone = res.data.phone;
+                    that.globalData.company = res.data.company
+                    that.globalData.realname = res.data.realname;
+                    that.globalData.wechat_openid = res.data.wechat_openid;
+                    that.globalData.hasUserInfo=true;                  
+                      
+                                    
                   }
                   wx.hideLoading();
                 });
@@ -38,6 +44,7 @@ App({
                 }
               },
               fail: res => {
+                that.globalData.hasUserInfo = false; 
                 console.log("登录失败");
                 console.log(res);
               }

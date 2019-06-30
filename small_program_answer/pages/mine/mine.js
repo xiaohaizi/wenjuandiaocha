@@ -63,6 +63,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+
+
+
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
@@ -99,10 +102,12 @@ Page({
         success: data => {
           SubUserInfo(app.globalData.userInfo, data.code, function (res) {
             if (res.data.success) {
-              app.globalData.ticket = res.data.ticket;
-              app.globalData.userInfo.integral = res.data.integral;
-              that.setData({
-                userInfo: app.globalData.userInfo,
+              app.globalData.phone = res.data.phone;
+              app.globalData.company = res.data.company
+              app.globalData.realname = res.data.realname;
+              app.globalData.wechat_openid = res.data.wechat_openid  
+              app.setData({
+               // userInfo: app.globalData.userInfo,
                 hasUserInfo: true
               })
             }
@@ -124,13 +129,20 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+   
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+
+    if (app.globalData.phone.length < 2) {
+      wx.switchTab({
+        url: '/pages/index/index',
+      })
+    }
+
     if(app.globalData.userInfo==null)
     {
       this.setData({
@@ -191,5 +203,5 @@ function SubUserInfo(userinfo, code, callback) {
     Country: userinfo.country,
     code: code
   }
-  util.Requset("Phone/Login/LoginIn", "POST", data, callback);
+  util.Requset("api/Login/LoginIn", "POST", data, callback);
 }

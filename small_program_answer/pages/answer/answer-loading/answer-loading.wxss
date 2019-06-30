@@ -1,7 +1,7 @@
 /* pages/answer/answer-loading/answer-loading.wxss */
 
 page {
-    background: url(https://www.gmoai.top/Resources/load-background.jpg) no-repeat top center /cover;
+   
 }
 
 view {
@@ -12,7 +12,7 @@ view {
 
 .loading-title {
     margin-top: 60rpx;
-    background: url(https://www.gmoai.top/Resources/green-flag.png) no-repeat top center /cover;
+  
     width: 713rpx;
     height: 125rpx;
     margin-bottom: 38rpx;

@@ -2,15 +2,23 @@ var util = require("../../utils/util.js");
 const app = getApp();
 Page({
     data: {
-        banner_1: "../../images/banner/banner_1.jpg",
-        banner_2: "../../images/banner/banner_2.jpg",
-        banner_3: "../../images/banner/banner_3.jpg",
-        realname:"",
-        phone:"",
+        // banner_1: "../../images/banner/banner_1.jpg",
+        // banner_2: "../../images/banner/banner_2.jpg",
+        // banner_3: "../../images/banner/banner_3.jpg",
+      banner_1: "../../images/banner/banner_4.jpg",      
+      realname: app.globalData.phone,
+      phone: app.globalData.realname,
         // banner_1: "https://www.gmoai.top/Resources/banner/banner_1.jpg",
         // banner_2: "https://www.gmoai.top/Resources/banner/banner_2.jpg",
         // banner_3: "https://www.gmoai.top/Resources/banner/banner_3.jpg",
     },
+  onLoad: function (options){
+    this.setData({
+      realname: app.globalData.realname ,
+      phone: app.globalData.phone,
+      hasUserInfo: app.globalData.hasUserInfo,
+    })
+  },
   realname_input: function (e) {
 
     this.data.realname = e.detail.value;
@@ -59,13 +67,13 @@ Page({
         return;
       }
       app.globalData.realname=this.data.realname;
-      app.globalData.phone="15072433059";//this.data.phone;
+      app.globalData.phone=this.data.phone;
       util.Requset("api/login/login", "POST",
-       { "realname": this.data.realname, "phone": this.data.phone},
+        { "realname": this.data.realname, "phone": this.data.phone, "wechat_openid": app.globalData.wechat_openid},
        function(data){
          //console.log(data);
         wx.navigateTo({
-          url: "../../pages/answer/answer-loading/answer-loading"
+          url: "../../pages/answer/answer-question/answer-question"
         })
 
       });
@@ -82,6 +90,43 @@ Page({
             url: "../../pages/other/rubbish/rubbish"
         })
     },
+  getUserInfo: function (e) {
+    var that = this;
+    if (e.detail.userInfo) {
+      app.globalData.userInfo = e.detail.userInfo
+      // 登录
+      wx.login({
+        success: data => {
+          SubUserInfo(app.globalData.userInfo, data.code, function (res) {
+            console.log(res);
+            if (res.data.success) {
+              app.globalData.phone = res.data.phone;
+              app.globalData.company = res.data.company;
+              app.globalData.realname = res.data.realname;
+              app.globalData.wechat_openid = res.data.wechat_openid;
+              app.globalData.hasUserInfo = true;
+              that.setData({
+                realname: app.globalData.realname,
+                phone: app.globalData.phone,
+                // userInfo: app.globalData.userInfo,
+                hasUserInfo: true
+              })
+            }
+            wx.hideLoading();
+          });
+        }
+      })
+    } else {
+      wx.showToast({
+        title: '已取消',
+        icon: 'none',
+        duration: 1000
+      })
+      console.log("用户拒绝登陆");
+    }
+
+  },
+
     sign: res => {
       wx.showLoading({
         title: '签到中',
@@ -106,3 +151,16 @@ Page({
 
     }
 })
+
+function SubUserInfo(userinfo, code, callback) {
+  var data = {
+    NickName: userinfo.nickName,
+    AvatarUrl: userinfo.avatarUrl,
+    Gender: userinfo.gender,
+    City: userinfo.city,
+    Province: userinfo.province,
+    Country: userinfo.country,
+    code: code
+  }
+  util.Requset("api/Login/LoginIn", "POST", data, callback);
+}

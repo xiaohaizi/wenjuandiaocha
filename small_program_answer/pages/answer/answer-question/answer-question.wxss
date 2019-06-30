@@ -70,6 +70,7 @@ page {
   justify-content: center;
   align-items: center;
   margin-top: 50rpx;
+  margin-bottom: 2rem;
 }
 
 .next text {
