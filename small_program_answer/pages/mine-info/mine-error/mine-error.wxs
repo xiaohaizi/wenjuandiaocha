@@ -1,0 +1,9 @@
+var check_err_filter = {
+  check_err: function (choose, id) {
+    console.log(1111);
+    return choose.indexOf(id);
+  }
+}
+module.exports = {
+  check_err: check_err_filter.check_err
+}

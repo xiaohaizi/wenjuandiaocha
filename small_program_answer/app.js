@@ -7,7 +7,9 @@ App({
   },
   userLogin:function(){
         var that=this;
-        console.log(111)
+        wx.showLoading({
+          title: '加载中...',
+        });
         // 登录
         wx.login({
           success: data => {
@@ -20,10 +22,7 @@ App({
                 that.globalData.userInfo = res.userInfo;
                 that.globalData.userInfo.integral="不详";
                 
-                wx.showLoading({
-                  title: '登录中',
-                  mask: true
-                })
+               
                 SubUserInfo(res.userInfo, data.code, function (res) {
                  
                   if (res.data.success) {                 

@@ -157,5 +157,11 @@ Page({
    */
   onShareAppMessage: function() {
 
+  },
+  show_err:function(e){
+    var record_id = e.currentTarget.dataset.recordid;   
+    wx.navigateTo({
+      url: '../mine-error/mine-error?record_id='+record_id,
+    })
   }
 })

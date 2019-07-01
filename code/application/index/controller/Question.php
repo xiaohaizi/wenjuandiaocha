@@ -44,8 +44,9 @@ class Question extends BaseCon
                     $an_item["is_right"]=0;
                     if(!empty( $answer_rights[$key])){
                         $an_item["is_right"]=intval($answer_rights[$key]);
-                    }                  
-                    $an_item["content"]=$answer_titles[$key];
+                    }           
+                  //  $an_title=preg_replace('# #','',$an_title);       
+                    $an_item["content"]=preg_replace('# #','',$answer_titles[$key]);  //  $answer_titles[$key];
                     $answer_list[]=$an_item;                 
                 }
                 if(!empty($answer_list))

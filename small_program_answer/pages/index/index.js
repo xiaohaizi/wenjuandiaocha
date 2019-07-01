@@ -6,9 +6,9 @@ Page({
     // banner_2: "../../images/banner/banner_2.jpg",
     // banner_3: "../../images/banner/banner_3.jpg",
     banner_1: "../../images/banner/banner_4.jpg",
-    realname: app.globalData.phone,
-    phone: app.globalData.realname,
-    company: app.globalData.company,
+    realname:"",
+    phone: "",
+    company:  "",
     // banner_1: "https://www.gmoai.top/Resources/banner/banner_1.jpg",
     // banner_2: "https://www.gmoai.top/Resources/banner/banner_2.jpg",
     // banner_3: "https://www.gmoai.top/Resources/banner/banner_3.jpg",
@@ -16,9 +16,9 @@ Page({
   onLoad: function (options) {
 
     this.setData({
-      realname: app.globalData.realname,
-      phone: app.globalData.phone,
-      company: app.globalData.company,
+      realname: app.globalData.realname ? app.globalData.realname : "",
+      phone: app.globalData.phone ? app.globalData.phone : "",
+      company: app.globalData.company ? app.globalData.company : "",
       hasUserInfo: app.globalData.hasUserInfo,
     })
   },

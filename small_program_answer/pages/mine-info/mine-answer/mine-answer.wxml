@@ -12,6 +12,7 @@
         <text class="answer">{{item.error_count+item.right_count}}题</text>
         <text class="answer-true">答对：</text>
         <text class="true-total">{{item.right_count}}题</text>
+         <button class="answer-err" data-recordid="{{item.id}}" bindtap="show_err">查看明细</button>
     </view>
     
 </view>

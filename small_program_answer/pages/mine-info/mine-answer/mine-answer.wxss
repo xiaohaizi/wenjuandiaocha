@@ -38,3 +38,9 @@ page {
 .mine .answer {
     margin-left: 0;
 }
+.answer-err{
+  font-size: 12px;
+  background-color: #25AEEB;
+  color: #fff
+
+}

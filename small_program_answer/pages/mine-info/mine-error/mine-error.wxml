@@ -1,0 +1,18 @@
+<wxs src="mine-error.wxs" module="tools" />
+<view class="container">
+  <view class="head"> 垃圾分类题库-错题解析</view>
+  <view class="question" wx:for="{{question_list}}">
+    <view class="q_title">
+      <text wx:if="{{item.q_type==1}}" class="an_type">(单选)</text>
+      <text wx:if="{{item.q_type==2}}" class="an_type">(多选)</text>
+      <text wx:if="{{item.q_type==3}}" class="an_type">(判断)</text> {{item.title}} 
+      <text class="user_item">当前选择:({{item.choose_abc}})</text>
+    </view>
+    <view class="q_content">
+      <text class="{{an_item.is_right==1?'right':''}} {{tools.check_err(item.user_answer,an_item.id)>-1?'user_choose':''}}" wx:for="{{item.answer}}" wx:for-item="an_item">{{an_item.content}}
+     
+      </text>
+
+    </view>
+  </view>
+</view>

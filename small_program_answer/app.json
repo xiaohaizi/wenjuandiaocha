@@ -13,7 +13,8 @@
     "pages/other/study/study",
     "pages/other/introduction/introduction",
     "pages/other/rubbish/rubbish", 
-    "pages/answer/answer-result/answer-result"
+    "pages/answer/answer-result/answer-result",
+    "pages/mine-info/mine-error/mine-error"
   ],
   "window": {
     "navigationBarBackgroundColor": "#6ac720",
