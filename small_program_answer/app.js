@@ -27,7 +27,7 @@ App({
                 SubUserInfo(res.userInfo, data.code, function (res) {
                  
                   if (res.data.success) {
-                    console.log(res.data.phone);
+                    console.log(res.data);
                     that.globalData.phone = res.data.phone;
                     that.globalData.company = res.data.company
                     that.globalData.realname = res.data.realname;

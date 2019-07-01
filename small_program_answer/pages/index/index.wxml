@@ -14,7 +14,11 @@
 
              <view class="text"style="margin-top:5rem" >
               <input placeholder="请输入手机号码" placeholder-class="placeholder" bindinput="phone_input" value="{{phone}}"></input>
-            </view>            
+            </view>   
+ <view class="text"style="margin-top:9rem" >
+              <textarea placeholder="请输入公司名称" placeholder-class="placeholder_textarea" bindinput="company_input" value="{{company}}"></textarea>
+            </view>   
+                     
                 <button  class="text_btn "  open-type="getUserInfo"  bindgetuserinfo="getUserInfo"  style="margin-top:8rem" >开始答题</button>                 
             
         </view>

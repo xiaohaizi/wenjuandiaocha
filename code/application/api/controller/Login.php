@@ -56,6 +56,7 @@ class Login
         $data["staus"] = 300;
         $data["msg"] = "错误";
         $data["data"] = "";
+       
         if (request()->instance()->isPost()) {
             $res = 0;
             $post = request()->instance()->param();
@@ -63,7 +64,12 @@ class Login
             $open_id=$post["wechat_openid"];
             $memberData =  $member->where(["phone" => $post["phone"]])->field('id,phone,realname,company,wechat_openid')->find();
            
-           
+           if(strlen($open_id)<11){
+            $open_id="";
+            $post["wechat_openid"]="";
+           }
+           $post["phone"]=trim($post["phone"]);
+          
             if (empty($memberData)) {
                 $member->where(["wechat_openid" => $open_id])->setField(["wechat_openid"=>""]);
                 $res =  $member->save($post);
@@ -72,11 +78,11 @@ class Login
                 $data["msg"] = "登录成功";
                 $data["data"] = $post;
             } else {
-                if($memberData->wechat_openid!=$open_id){   
+                if($memberData->wechat_openid!=$open_id&&strlen($open_id)>10){   
                     $member->where(["wechat_openid" => $open_id])->setField(["wechat_openid"=> ""]);              
                     $member->where(["phone" => $post["phone"]])->setField(["wechat_openid"=> $open_id]);      
                 }                
-                $member->where(["phone" => $post["phone"]])->setField(["realname"=>$post["realname"]]);
+                $member->where(["phone" =>$post["phone"]])->setField(["realname"=>trim($post["realname"]),"company"=>trim($post["company"])]);
                 $post["id"] = $res;
                 $data["staus"] = 200;
                 $data["msg"] = "登录成功";

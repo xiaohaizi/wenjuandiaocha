@@ -164,43 +164,47 @@ class Question
     public function score(){
         $record_model = model("Record");
         $phone = input("param.phone");
-        $records=  $record_model->where("1=1")->with("Member")->field("MAX(score) as mscore, member_id,create_time")->group("member_id")->order("mscore desc")->select();
-       // SELECT MAX(score) as mscore, member_id FROM wj_record GROUP BY member_id ORDER BY mscore desc 
-      //$mids=array_column($records,"member_id");
-    //   $member_score=array_column($records,"mscore","member_id");
-    //   $member_time=array_column($records,"create_time","member_id");
-           $member_list=[];
-    //    $member = model("Member");
-    //    $member_list= $member->where(["id"=>array("in",$mids)])->field("id,phone,realname,company")->select();
+        $records=  $record_model->where("1=1")->with("Member")->field("MAX(score) as mscore, member_id,create_time")->group("member_id")->order("mscore desc, id asc")->select();
     
-    $member_rank=0;
-    foreach( $records as $key=>$item){ 
-             if($item["Member"]["phone"]== $phone){
-                $member_rank= $key+1;
+   
+        $member_rank=0;
+        foreach( $records as $key=>$item){ 
+                if($item["Member"]["phone"]== $phone){
+                    $member_rank= $key+1;
+                    break;
+                }
+        }   
+        foreach( $records as $key=>$item){    
+            if( $key>99){   
                 break;
-             }
-    }   
-    foreach( $records as $key=>$item){    
-        if( $key>99){   
-            break;
-        }     
-           $m_item["rank"]= $key+1;
-           $m_item["score"]=$item["mscore"];
-           $m_item["phone"]= $item["Member"]["phone"];
-           $m_item["realname"]= $item["Member"]["realname"];
-           $m_item["company"]= $item["Member"]["company"];
-           $m_item["create_time"]= $item["create_time"]; 
-           $m_item["member_id"]= $item["member_id"];
-           $member_list[]=$m_item;
-         
-      
-    }
+            }     
+            $m_item["rank"]= $key+1;
+            $m_item["score"]=$item["mscore"];
+            $m_item["phone"]= $item["Member"]["phone"];
+            $m_item["realname"]= $item["Member"]["realname"];
+            $m_item["company"]= $item["Member"]["company"];
+            $m_item["create_time"]= $item["create_time"]; 
+            $m_item["member_id"]= $item["member_id"];
+            $member_list[]=$m_item;
+        }
        $data["status"] = 200;
        $data["msg"] = "感谢参与";
        $data["member_rank"] =   $member_rank;
-      $data["data"] =   $member_list;
+       $data["data"] =   $member_list;
        echo json_encode($data);
        die;
        //print_r( $member_list);
+    }
+
+
+
+
+    public  function answer(){
+        $question = model("Question");
+        $q_list= $question->where("1=1")->with("Answer")->order("id desc")->paginate(15);
+
+        echo json_encode($q_list);
+
+        die;
     }
 }

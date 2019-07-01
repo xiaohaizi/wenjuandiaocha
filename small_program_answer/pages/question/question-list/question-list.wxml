@@ -1,0 +1,14 @@
+<view class="container">
+  <view class="head"> 垃圾分类题库-共{{counts}}题</view>
+  <view class="question" wx:for="{{question_list}}">
+    <view class="q_title">
+      <text wx:if="{{item.q_type==1}}" class="an_type">(单选)</text>
+      <text wx:if="{{item.q_type==2}}" class="an_type">(多选)</text>
+      <text wx:if="{{item.q_type==3}}" class="an_type">(判断)</text> {{item.title}}
+    </view>
+    <view class="q_content">
+      <text class="{{an_item.is_right==1?'right':''}}" wx:for="{{item.answer}}" wx:for-item="an_item">{{an_item.content}}</text>
+
+    </view>
+  </view>
+</view>

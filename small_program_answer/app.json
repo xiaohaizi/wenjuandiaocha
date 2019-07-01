@@ -4,6 +4,7 @@
     "pages/index/index",
     "pages/answer/answer-question/answer-question",
     "pages/answer/answer-loading/answer-loading",
+    "pages/question/question-list/question-list",
     "pages/mine/mine",
     "pages/mine-info/mine-answer/mine-answer",
     "pages/mine-info/mine-signin/mine-signin",
@@ -26,6 +27,13 @@
         "text": "主页",
         "iconPath": "images/icon/home.png",
         "selectedIconPath": "images/icon/home_s.png"
+      },
+
+      {
+        "pagePath": "pages/question/question-list/question-list",
+        "text": "题库",
+        "iconPath": "images/icon/list.png",
+        "selectedIconPath": "images/icon/list_s.png"
       },
       {
         "pagePath": "pages/mine/mine",
