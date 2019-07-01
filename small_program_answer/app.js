@@ -26,12 +26,12 @@ App({
                 })
                 SubUserInfo(res.userInfo, data.code, function (res) {
                  
-                  if (res.data.success) {
-                    console.log(res.data);
+                  if (res.data.success) {                 
                     that.globalData.phone = res.data.phone;
                     that.globalData.company = res.data.company
                     that.globalData.realname = res.data.realname;
                     that.globalData.wechat_openid = res.data.wechat_openid;
+                    that.globalData.record_count = res.data.record_count;   
                     that.globalData.hasUserInfo=true;                  
                       
                                     

@@ -13,7 +13,7 @@ Page({
     // banner_2: "https://www.gmoai.top/Resources/banner/banner_2.jpg",
     // banner_3: "https://www.gmoai.top/Resources/banner/banner_3.jpg",
   },
-  onLoad: function(options) {
+  onLoad: function (options) {
 
     this.setData({
       realname: app.globalData.realname,
@@ -25,7 +25,7 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function() {
+  onShow: function () {
     console.log(app.globalData.realname);
     this.setData({
       realname: app.globalData.realname,
@@ -33,12 +33,12 @@ Page({
       hasUserInfo: app.globalData.hasUserInfo,
     })
   },
-  realname_input: function(e) {
+  realname_input: function (e) {
     this.data.realname = e.detail.value;
   },
-  phone_input: function(e) {
+  phone_input: function (e) {
     this.data.phone = e.detail.value;
-   
+
   },
 
   company_input: function (e) {
@@ -46,23 +46,23 @@ Page({
     //console.log(e.detail.value);
 
   },
-  onShareAppMessage: function(options) {
+  onShareAppMessage: function (options) {
     return {
       title: '节能有我，一起来答题，赢取精美礼品',
       path: 'pages/loading/loading',
-      success: function(res) {
+      success: function (res) {
         // 转发成功
         console.log("转发成功");
         console.log(res);
       },
-      fail: function(res) {
+      fail: function (res) {
         // 转发失败
         console.log("转发失败");
         console.log(res);
       }
     }
   },
-  start: function(event) {
+  start: function (event) {
 
     // app.globalData.phone = "15072433059";
     // wx.redirectTo({
@@ -89,11 +89,11 @@ Page({
     app.globalData.phone = this.data.phone;
 
     util.Requset("api/login/login", "POST", {
-        "realname": this.data.realname,
-        "phone": this.data.phone,
-        "wechat_openid": app.globalData.wechat_openid
-      },
-      function(data) {
+      "realname": this.data.realname,
+      "phone": this.data.phone,
+      "wechat_openid": app.globalData.wechat_openid
+    },
+      function (data) {
         wx.navigateTo({
           //url: "../../pages/answer/answer-question/answer-question"
         })
@@ -102,17 +102,17 @@ Page({
 
 
   },
-  study: function() {
+  study: function () {
     wx.navigateTo({
       url: "../../pages/other/study/study"
     })
   },
-  rubbish: function() {
+  rubbish: function () {
     wx.navigateTo({
       url: "../../pages/other/rubbish/rubbish"
     })
   },
-  getUserInfo: function(e) {
+  getUserInfo: function (e) {
     var that = this;
     if (that.data.realname.length < 1) {
       wx.showToast({
@@ -128,7 +128,7 @@ Page({
       });
       return;
     }
-    
+
     if (!that.data.company) {
       wx.showToast({
         title: '请输入公司名称',
@@ -137,32 +137,42 @@ Page({
       return;
     }
 
-    if (that.data.company.length<2){
+    if (that.data.company.length < 2) {
       wx.showToast({
         title: '请输入公司名称',
         icon: "none",
       });
       return;
     }
-    
+
     if (e.detail.userInfo) {
       app.globalData.userInfo = e.detail.userInfo
       // 登录
       wx.login({
         success: data => {
-          SubUserInfo(app.globalData.userInfo, data.code, function(res) {
+          SubUserInfo(app.globalData.userInfo, data.code, function (res) {
             //console.log(res);
             if (res.data.success) {
               util.Requset("api/login/login", "POST", {
-                  "realname": that.data.realname,
-                  "phone": that.data.phone,
+                "realname": that.data.realname,
+                "phone": that.data.phone,
                 "company": that.data.company,
-                  "wechat_openid": app.globalData.wechat_openid
-                },
-                function(data) {                  
-                  wx.navigateTo({
-                    url: "../../pages/answer/answer-question/answer-question"
-                  })
+                "wechat_openid": app.globalData.wechat_openid
+              },
+                function (data) {
+                  app.globalData.record_count = data.data.record_count;
+                  if (data.data.record_count > 2) {
+                    wx.showToast({
+                      title: '每个账号最多答题两次',
+                      icon: "none",
+                    });
+                    return;
+                  } else {
+                    wx.navigateTo({
+                      url: "../../pages/answer/answer-question/answer-question"
+                    })
+                  }
+
 
                 });
             }
@@ -186,7 +196,7 @@ Page({
       title: '签到中',
       mask: true
     })
-    util.Requset("Phone/Sign/UserSign", "POST", {}, function(res) {
+    util.Requset("Phone/Sign/UserSign", "POST", {}, function (res) {
       if (res.data.success) {
         app.globalData.userInfo.integral = res.data.integral;
         wx.showToast({

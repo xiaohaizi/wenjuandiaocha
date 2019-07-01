@@ -15,7 +15,7 @@ Page({
       "record_id": options.record_id,
       "phone": app.globalData.phone
     }, function(res) {
-      console.log(res.data.data);
+      
       if (res.data.status == 200) {
         that.setData({
           right_count: res.data.data.right_count,

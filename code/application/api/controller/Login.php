@@ -20,6 +20,7 @@ class Login
         $data["company"] = "";
         $data["realname"] = "";
         $data["wechat_openid"] = "";
+        $data["record_count"]=0;
         if (!empty($arr)) {
             $data["wechat_openid"] = trim($arr["openid"]);
 
@@ -31,6 +32,9 @@ class Login
                 $data["phone"] = $info->phone;
                 $data["company"] = $info->company;
                 $data["realname"] = $info->realname;
+                $record_model = model("Record");
+                $record_count=  $record_model->where(["member_id"=>$data["id"]])->count();
+               $data["record_count"]= $record_count;
             }
         }
 
@@ -56,7 +60,7 @@ class Login
         $data["staus"] = 300;
         $data["msg"] = "错误";
         $data["data"] = "";
-       
+        $data["record_count"]= 0;
         if (request()->instance()->isPost()) {
             $res = 0;
             $post = request()->instance()->param();
@@ -83,12 +87,18 @@ class Login
                     $member->where(["phone" => $post["phone"]])->setField(["wechat_openid"=> $open_id]);      
                 }                
                 $member->where(["phone" =>$post["phone"]])->setField(["realname"=>trim($post["realname"]),"company"=>trim($post["company"])]);
-                $post["id"] = $res;
+                $post["id"] = $memberData->id;
                 $data["staus"] = 200;
                 $data["msg"] = "登录成功";
                 $data["data"] = $memberData;
             }
+            $record_model = model("Record");
+            $record_count=  $record_model->where(["member_id"=>$post["id"]])->count();
+            $data["record_count"]= $record_count;
+            echo  json_encode($data);
+            die;
         }
-        return  json_encode($data);
+        echo  json_encode($data);
+        die;
     }
 }
