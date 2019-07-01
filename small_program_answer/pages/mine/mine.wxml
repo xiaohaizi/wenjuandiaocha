@@ -28,5 +28,9 @@
         <text>答题记录</text>
         <image class="more" src="../../images/icon/more.png"></image>
     </view>
-   
+   <view class="mine" bindtap="rank">
+        <image class="mine-answer-icon mine-img" src="../../images/icon/flag_b.png"></image>
+        <text>查看排行</text>
+        <image class="more" src="../../images/icon/more.png"></image>
+    </view>
 </view>

@@ -13,20 +13,31 @@ Page({
         // banner_3: "https://www.gmoai.top/Resources/banner/banner_3.jpg",
     },
   onLoad: function (options){
+    
     this.setData({
       realname: app.globalData.realname ,
       phone: app.globalData.phone,
       hasUserInfo: app.globalData.hasUserInfo,
     })
   },
+  /**
+  * 生命周期函数--监听页面显示
+  */
+  onShow: function () {
+    console.log(app.globalData.realname);
+    this.setData({
+      realname: app.globalData.realname,
+      phone: app.globalData.phone,
+      hasUserInfo: app.globalData.hasUserInfo,
+    })
+  },
   realname_input: function (e) {
-
-    this.data.realname = e.detail.value;
-    console.log(e.detail.value);
+    this.data.realname = e.detail.value;   
   },
   phone_input:function(e)
   {
     this.data.phone = e.detail.value;
+    app.globalData.phone = e.detail.value;
   },
     onShareAppMessage: function (options){
       return {
@@ -45,6 +56,7 @@ Page({
       }
     },
     start: function (event) {
+     
       // app.globalData.phone = "15072433059";
       // wx.redirectTo({
       //   url: "../../pages/answer/answer-loading/answer-loading"
@@ -68,12 +80,17 @@ Page({
       }
       app.globalData.realname=this.data.realname;
       app.globalData.phone=this.data.phone;
+
       util.Requset("api/login/login", "POST",
         { "realname": this.data.realname, "phone": this.data.phone, "wechat_openid": app.globalData.wechat_openid},
        function(data){
+
+
+
+
          //console.log(data);
         wx.navigateTo({
-          url: "../../pages/answer/answer-question/answer-question"
+          //url: "../../pages/answer/answer-question/answer-question"
         })
 
       });
@@ -92,26 +109,43 @@ Page({
     },
   getUserInfo: function (e) {
     var that = this;
+   
     if (e.detail.userInfo) {
       app.globalData.userInfo = e.detail.userInfo
       // 登录
       wx.login({
         success: data => {
           SubUserInfo(app.globalData.userInfo, data.code, function (res) {
-            console.log(res);
+            //console.log(res);
             if (res.data.success) {
-              app.globalData.phone = res.data.phone;
-              app.globalData.company = res.data.company;
-              app.globalData.realname = res.data.realname;
-              app.globalData.wechat_openid = res.data.wechat_openid;
-              app.globalData.hasUserInfo = true;
-              that.setData({
-                realname: app.globalData.realname,
-                phone: app.globalData.phone,
-                // userInfo: app.globalData.userInfo,
-                hasUserInfo: true
-              })
+            
+
+            if (that.data.realname.length < 1) {
+              wx.showToast({
+                title: '请输入姓名',
+                icon: "none",
+              });
+              return;
             }
+           
+            if (that.data.phone.length < 11) {
+              wx.showToast({
+                title: '请输入手机号',
+                icon: "none",
+              });
+              return;
+            }          
+          
+            util.Requset("api/login/login", "POST",
+              { "realname": that.data.realname, "phone": that.data.phone, "wechat_openid": app.globalData.wechat_openid },
+              function (data) {
+                //console.log(data);
+                wx.navigateTo({
+                  url: "../../pages/answer/answer-question/answer-question"
+                })
+
+              });
+          }
             wx.hideLoading();
           });
         }

@@ -1,0 +1,65 @@
+/* pages/mine-info/rank/rank.wxss */
+page {
+    background: #eee;
+}
+
+.mine {
+    margin: 0;
+}
+
+.mine:first-child {
+    border-top: none;
+    margin-bottom: 10px;
+}
+
+.mine .num {
+    margin-left: auto;
+    color: #eb8215;
+    font-size: 18px;
+}
+
+.mine .ti {
+    margin-right: 10px;
+}
+
+.mine .check {
+    margin-left: auto;
+    margin-right: 10px;
+}
+
+.mine .answer-true {
+    margin-left: auto;
+}
+
+.mine .true-total {
+    color:#eb8215;
+    margin-right: 10px;
+}
+
+.mine .answer {
+    margin-left: 0;
+}
+.socre{
+  float: right;
+  line-height: 50rpx;
+  position: absolute;
+right: 0.2rem;
+
+}
+.member_socre text{
+  color: #25AEEB;
+}
+.rank_c{
+  color: #707070;
+  width: 130rpx;
+  margin-left: 0.2rem; 
+}
+.total{
+  font-weight: normal;
+  font-size: 18px;
+}
+.total .rank_num{
+  color: #eb8125;
+  font-size: 20px;
+  font-weight: bold;
+}

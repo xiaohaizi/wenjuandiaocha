@@ -1,16 +1,20 @@
+<wxs src="answer-question.wxs" module="tools" />
 <view class="container">
     <view class="answer-info">
         <view class="answer-left answer-ques">
-            <text class="answer-num">第{{questionIndex+1}}题</text>
+            <text class="answer-num">第{{questionIndex+1}}题 </text>
+            <text wx:if="{{answer_type==1}}" class="an_type">(单选)</text>
+            <text wx:if="{{answer_type==2}}" class="an_type">(多选)</text>
+            <text wx:if="{{answer_type==3}}" class="an_type">(判断)</text>           
         </view>
         <view class="answer-right answer-ques">
             <text class="answer-true">共计{{questionBank.length}}题</text>
         </view>
     </view>
     <text class="answer-text">{{questionShow.ProblemTitle}}</text>
-    <view class="answer {{ChooseId==item.Id?'select':''}}"
+    <view class="answer {{tools.check_qid(ChooseId,item.Id)>-1?'select':''}}"
      wx:for="{{questionShow.answers}}" 
-     data-optionsid="{{item.Id}}" data-right="{{item.flag}}" 
+     data-optionsid="{{item.Id}}" data-qtype="{{questionShow.q_type}}" data-right="{{item.flag}}" 
      data-optionscontent="{{item.OptionsContent}}" bindtap='userChoose'>
         <text>{{item.OptionsContent}}</text>
     </view>

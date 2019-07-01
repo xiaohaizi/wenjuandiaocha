@@ -12,7 +12,7 @@ page {
 }
 
 .answer-ques {
-  width: 200rpx;
+  width: 265rpx;
   height: 100rpx;
   display: block;
   background: red;
@@ -95,4 +95,8 @@ page {
   color: #eb8125;
   line-height: 2rem;
   background-color: #FFFFE0;
+}
+.answer-num .an_type{
+  font-size: 18px;
+  margin-left: 0.2rem;
 }

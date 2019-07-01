@@ -20,7 +20,7 @@ Page({
     
 
     var that = this;
-    util.Requset("api/Question/GetHistoryList", "GET", { "phone": "15072433059", "page": 1}, function (res) {
+    util.Requset("api/Question/GetHistoryList", "GET", { "phone": app.globalData.phone, "page": 1}, function (res) {
       
       if (res.data.status==200) {
         var num=0;

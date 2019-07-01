@@ -1,5 +1,5 @@
 {
-  "pages": [
+  "pages": [   
     "pages/loading/loading",
     "pages/index/index",
     "pages/answer/answer-question/answer-question",
@@ -8,9 +8,10 @@
     "pages/mine-info/mine-answer/mine-answer",
     "pages/mine-info/mine-signin/mine-signin",
     "pages/mine-info/mine-integral/mine-integral",
+    "pages/mine-info/rank/rank",
     "pages/other/study/study",
     "pages/other/introduction/introduction",
-    "pages/other/rubbish/rubbish",
+    "pages/other/rubbish/rubbish", 
     "pages/answer/answer-result/answer-result"
   ],
   "window": {

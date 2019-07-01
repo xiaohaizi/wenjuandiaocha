@@ -75,8 +75,8 @@ class Login
                 if($memberData->wechat_openid!=$open_id){   
                     $member->where(["wechat_openid" => $open_id])->setField(["wechat_openid"=> ""]);              
                     $member->where(["phone" => $post["phone"]])->setField(["wechat_openid"=> $open_id]);      
-                }
-               // $member->where(["phone" => $post["phone"]])->setField(["wechat_openid", $open_id]);
+                }                
+                $member->where(["phone" => $post["phone"]])->setField(["realname"=>$post["realname"]]);
                 $post["id"] = $res;
                 $data["staus"] = 200;
                 $data["msg"] = "登录成功";

@@ -1,0 +1,9 @@
+var check_qid_filter = {
+  check_qid: function (choose,id) {
+    
+    return choose.indexOf(id);
+  }
+}
+module.exports = {
+  check_qid: check_qid_filter.check_qid
+}

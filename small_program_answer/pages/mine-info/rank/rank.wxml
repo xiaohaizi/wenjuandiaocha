@@ -1,0 +1,22 @@
+<view class="container">
+  <view class="mine">
+    <image class="mine-answer-icon mine-img" src="../../../images/icon/answer.png"></image>
+    <view class="total">当前
+      <text class="rank_num"> {{member_rank}}</text>
+   排行：</view>
+
+  </view>
+  <view class="mine " wx:for="{{HistoryList}}">
+    <view class="rank_c">排名:{{item.rank}}</view>
+      <image class="mine-answer-icon mine-img" src="../../../images/icon/mine_s.png"></image>
+      <text class="date">{{item.realname}}</text>
+     
+      <view class="socre {{item.phone==user_phone?'member_socre':''}}">
+        <text class="total-answer ">分数</text>
+        <text class="answer">{{item.score}}分</text>
+      </view>
+
+   
+  </view>
+
+</view>

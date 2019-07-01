@@ -19,13 +19,15 @@ App({
                 // 可以将 res 发送给后台解码出 unionId
                 that.globalData.userInfo = res.userInfo;
                 that.globalData.userInfo.integral="不详";
-                console.log(that.globalData.userInfo);
+                
                 wx.showLoading({
                   title: '登录中',
                   mask: true
                 })
                 SubUserInfo(res.userInfo, data.code, function (res) {
+                 
                   if (res.data.success) {
+                    console.log(res.data.phone);
                     that.globalData.phone = res.data.phone;
                     that.globalData.company = res.data.company
                     that.globalData.realname = res.data.realname;

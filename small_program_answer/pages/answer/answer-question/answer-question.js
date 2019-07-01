@@ -11,7 +11,7 @@ Page({
     questionShow: {},
     questionIndex: 0,
     chooseItems: [],
-    ChooseId: 0,
+    ChooseId: [],
     falg: false,
     timer: null,
     next: "下一题",
@@ -30,6 +30,7 @@ Page({
         that.setData({
           questionBank: res.data.list,
           questionShow: res.data.list[0],
+          answer_type: res.data.list[0].q_type,
           questionIndex: 0
         })
       } else {
@@ -53,18 +54,28 @@ Page({
   },
   userChoose: function(e) {
     var that = this;
-
-    if (parseInt(e).toString() != "NaN") {
-
+    console.log(e instanceof Array);
+    if ((e instanceof Array)) { //时间到了自动选择
       this.setData({
         ChooseId: that.data.ChooseId,
+      
         falg: true
       })
     } else {
-      that.data.ChooseId = e.currentTarget.dataset.optionsid;
-
+      if (e.currentTarget.dataset.qtype==2){ //如果是多选题目
+        if (that.data.ChooseId.indexOf(e.currentTarget.dataset.optionsid) > -1) {
+          remove_arr(that.data.ChooseId, e.currentTarget.dataset.optionsid);
+        } else {
+          that.data.ChooseId.push(e.currentTarget.dataset.optionsid);
+        }
+      }else{
+        that.data.ChooseId=[];       
+        that.data.ChooseId.push(e.currentTarget.dataset.optionsid);
+      }      
+     // console.log(that.data.ChooseId.indexOf(e.currentTarget.dataset.optionsid));
       this.setData({
-        ChooseId: e.currentTarget.dataset.optionsid,
+        ChooseId: that.data.ChooseId,
+       // answer_type: that.data.questionBank[that.data.questionIndex].q_type,
         falg: true
       })
     }
@@ -86,32 +97,37 @@ Page({
     //将选中的答案存入题库
     var that = this;
     var waitAnswer = that.data.questionBank[that.data.questionIndex].answers;
-
-
-    if (that.data.ChooseId == 0) {
+   // that.data.questionBank[that.data.questionIndex].userAnswer=[];
+    var userAnswer_tmp=[];
+    var question_id_tmp=0;
+   // console.log(that.data.questionBank[that.data.questionIndex]);
+    if (that.data.ChooseId.length<1) {
 
       tmp_item = {
         "question_id": waitAnswer[0].question_id,
-        "answer_id": 0
+        "answer_id": []
       };
       that.data.chooseItems[that.data.questionIndex] = tmp_item;
     } else {
       for (var i = 0; i < waitAnswer.length; i++) {
-        if (waitAnswer[i].Id == that.data.ChooseId) {
-          that.data.questionBank[that.data.questionIndex].userAnswer = waitAnswer[i].Id;
-          that.data.questionBank[that.data.questionIndex].question_id = waitAnswer[i].question_id;
-          tmp_item = {
-            "question_id": waitAnswer[i].question_id,
-            "answer_id": waitAnswer[i].Id
-          };
-          that.data.chooseItems[that.data.questionIndex] = tmp_item;
+        if (that.data.ChooseId.indexOf(waitAnswer[i].Id )>-1) {
+          userAnswer_tmp.push(waitAnswer[i].Id);
+         // that.data.questionBank[that.data.questionIndex].question_id = waitAnswer[i].question_id;
+          question_id_tmp = waitAnswer[i].question_id;
+          
         }
+        tmp_item = {
+          "question_id": question_id_tmp,
+          "answer_id": userAnswer_tmp
+        };
+        that.data.chooseItems[that.data.questionIndex] = tmp_item;
         that.data.questionBank[that.data.questionIndex].CreateTime = "";
       }
     }
 
     console.log(that.data.chooseItems);
     that.data.time_nums = 10;
+    that.data.ChooseId=[];
     //判断是否是最后一题
     if (that.data.questionIndex == that.data.questionBank.length - 1) {
       that.data.timer = null;
@@ -153,14 +169,18 @@ Page({
         that.setData({
           questionShow: that.data.questionBank[that.data.questionIndex + 1],
           questionIndex: that.data.questionIndex + 1,
+          answer_type: that.data.questionBank[that.data.questionIndex+1].q_type,
           next: '提交',
           falg: false
         })
       } else {
-        console.log(that.data.questionIndex);
+       
         that.setData({
+         
           questionShow: that.data.questionBank[that.data.questionIndex + 1],
           questionIndex: that.data.questionIndex + 1,
+          answer_type: that.data.questionBank[that.data.questionIndex+1].q_type,
+        
           falg: false
         })
       }
@@ -178,7 +198,6 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
-
   },
 
   /**
@@ -238,3 +257,12 @@ Page({
   }
 
 })
+
+
+function remove_arr(arr,val) {
+  var index = arr.indexOf(val);
+  if (index > -1) {
+    arr.splice(index, 1);
+  }
+  return arr;
+};

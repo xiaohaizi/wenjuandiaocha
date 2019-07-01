@@ -14,17 +14,11 @@
 
              <view class="text"style="margin-top:5rem" >
               <input placeholder="请输入手机号码" placeholder-class="placeholder" bindinput="phone_input" value="{{phone}}"></input>
-            </view>
-            <view class="text_btn " style="margin-top:8rem" bindtap="start">
-                <text  >开始答题</text>
-            </view>           
+            </view>            
+                <button  class="text_btn "  open-type="getUserInfo"  bindgetuserinfo="getUserInfo"  style="margin-top:8rem" >开始答题</button>                 
             
         </view>
-         <view class="text" class="login_btn"  >
-            <button  wx:if="{{!hasUserInfo}}"  open-type="getUserInfo"  bindgetuserinfo="getUserInfo" style="margin-top:10px">
-                立即登陆
-            </button>
-            </view>
+       
     </view>   
     <view class="index-text">
        

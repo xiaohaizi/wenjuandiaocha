@@ -13,7 +13,7 @@ Page({
     canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
   answer: function (event) {
-    if (!this.data.hasUserInfo || this.data.userInfo == null) {
+    if (!this.data.hasUserInfo) {
       wx.showToast({
         title: '请先登录',
         icon: 'none',
@@ -23,6 +23,21 @@ Page({
     }
     wx.navigateTo({
       url: "../../pages/mine-info/mine-answer/mine-answer"
+    })
+  },
+
+
+  rank: function (event) {
+    if (!this.data.hasUserInfo ) {
+      wx.showToast({
+        title: '请先登录',
+        icon: 'none',
+        duration: 1000
+      })
+      return;
+    }
+    wx.navigateTo({
+      url: "../../pages/mine-info/rank/rank"
     })
   },
   

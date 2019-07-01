@@ -21,7 +21,8 @@ class Question extends BaseCon
             $post = input("param.");
             $q_data["title"]= $post["title"];
             $q_data["question_bank_id"]=$post["question_bank_id"];
-            $q_data["sort"]=$post["sort"];         
+            $q_data["sort"]=$post["sort"];     
+            $q_data["q_type"]=$post["q_type"];         
             //answer_title   answer_right
            $answer_titles = $post["answer_title"];
            $answer_rights =[];
