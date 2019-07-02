@@ -1,0 +1,70 @@
+{extend name="Public/main" /}
+
+<!--内容-->
+{block name="main"}
+
+<div class="layui-fluid">
+    <div class="layui-row layui-col-space15">
+        <div class="layui-col-md12">
+            <div class="layui-card">
+                <div class="layui-card-body ">
+                    <form class="layui-form layui-col-space5">
+                        <div class="layui-inline layui-show-xs-block">
+                            <input type="text" name="username" placeholder="请输入用户名" autocomplete="off" class="layui-input">
+                        </div>
+                        <div class="layui-inline layui-show-xs-block">
+                            <button class="layui-btn" lay-submit="" lay-filter="sreach"><i
+                                    class="layui-icon">&#xe615;</i></button>
+                        </div>
+                    </form>
+                </div>
+                <div class="layui-card-body layui-table-body layui-table-main">
+                    <table class="layui-table layui-form">
+                        <thead>
+
+                            <tr>
+
+                                <th style="width: 50px">排名</th>
+                                <th>用户</th>
+                                <th>得分</th>
+
+                                <th>时间</th>
+                                <th style="width:200px">操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {volist name="data_list " id="vo " key="key "}
+                            <tr>
+
+                                <td>{$current_page*15+$key}</td>
+                                <td>{$vo["Member"]["phone"]}</td>
+                                <td>{$vo["mscore"]}</td>
+
+                                <td>{$vo["create_time"]}</td>
+
+                                <td class="td-manage">
+
+
+                                </td>
+                            </tr>
+                            {/volist}
+
+
+                        </tbody>
+                    </table>
+                </div>
+                <div class="layui-card-body ">
+
+                    {$page}
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--内容结束-->
+{/block}
+
+<!---->
+{block name="script"} {/block}
+<!---->
