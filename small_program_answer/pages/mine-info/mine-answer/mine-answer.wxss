@@ -1,46 +1,50 @@
 page {
-    background: #eee;
+  background: #eee;
 }
 
 .mine {
-    margin: 0;
+  margin: 0;
 }
 
 .mine:first-child {
-    border-top: none;
-    margin-bottom: 10px;
+  border-top: none;
+  margin-bottom: 10px;
 }
 
 .mine .num {
-    margin-left: auto;
-    color: #eb8215;
-    font-size: 18px;
+  margin-left: auto;
+  color: #eb8215;
+  font-size: 18px;
 }
 
 .mine .ti {
-    margin-right: 10px;
+  margin-right: 10px;
 }
 
 .mine .check {
-    margin-left: auto;
-    margin-right: 10px;
+  margin-left: auto;
+  margin-right: 10px;
 }
 
 .mine .answer-true {
-    margin-left: auto;
+  margin-left: auto;
 }
 
 .mine .true-total {
-    color:#eb8215;
-    margin-right: 10px;
+  color: #eb8215;
+  margin-right: 10px;
 }
 
 .mine .answer {
-    margin-left: 0;
+  margin-left: 0;
 }
-.answer-err{
-  font-size: 12px;
-  background-color: #25AEEB;
-  color: #fff
 
+.answer-err {
+  font-size: 12px;
+  background-color: #25aeeb;
+  color: #fff;
+  height: 50rpx;
+  line-height: 50rpx;
+  padding-left: 15rpx;
+  padding-right: 15rpx;
 }

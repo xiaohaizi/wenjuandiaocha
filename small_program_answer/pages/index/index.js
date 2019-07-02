@@ -145,13 +145,17 @@ Page({
       return;
     }
 
+   
+
     if (e.detail.userInfo) {
       app.globalData.userInfo = e.detail.userInfo
       // 登录
       wx.login({
         success: data => {
           SubUserInfo(app.globalData.userInfo, data.code, function (res) {
-            //console.log(res);
+            wx.showLoading({
+              title: '加载中...',
+            });
             if (res.data.success) {
               util.Requset("api/login/login", "POST", {
                 "realname": that.data.realname,
@@ -159,18 +163,25 @@ Page({
                 "company": that.data.company,
                 "wechat_openid": app.globalData.wechat_openid
               },
-                function (data) {
-                  app.globalData.record_count = data.data.record_count;
-                  if (data.data.record_count > 2) {
+                function (res_data) {
+                  wx.hideLoading();
+                  app.globalData.phone = res_data.data.data.phone;
+                  app.globalData.company = res_data.data.data.company
+                  app.globalData.realname = res_data.data.data.realname;
+                  app.globalData.wechat_openid = res_data.data.data.wechat_openid;                 
+                  app.globalData.hasUserInfo = true;                  
+                  app.globalData.record_count = res_data.data.record_count;
+                  console.log(app.globalData.phone);
+                  if (res_data.data.record_count > 1) {
                     wx.showToast({
                       title: '每个账号最多答题两次',
                       icon: "none",
                     });
                     return;
                   } else {
-                    wx.navigateTo({
-                      url: "../../pages/answer/answer-question/answer-question"
-                    })
+                   wx.navigateTo({
+                     url: "../../pages/answer/answer-question/answer-question"
+                   })
                   }
 
 

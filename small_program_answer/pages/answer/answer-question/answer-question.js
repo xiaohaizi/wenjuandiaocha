@@ -147,6 +147,7 @@ Page({
 
         wx.hideLoading();
         if (res_data.data.status == 200) {
+          console.log(res_data);
           //app.globalData.userInfo.integral = res.data.integral;       
           wx.showModal({
             title: '提示',
