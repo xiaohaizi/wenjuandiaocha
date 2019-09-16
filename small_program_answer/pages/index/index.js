@@ -5,7 +5,7 @@ Page({
     // banner_1: "../../images/banner/banner_1.jpg",
     // banner_2: "../../images/banner/banner_2.jpg",
     // banner_3: "../../images/banner/banner_3.jpg",
-    banner_1: "../../images/banner/banner_4.jpg",
+    banner_1: "../../images/banner/banner001.jpg",
     realname:"",
     phone: "",
     company:  "",

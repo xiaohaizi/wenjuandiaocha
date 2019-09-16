@@ -17,7 +17,7 @@
     "pages/mine-info/mine-error/mine-error"
   ],
   "window": {
-    "navigationBarBackgroundColor": "#6ac720",
+    "navigationBarBackgroundColor": "#b40f13",
     "navigationBarTextStyle": "white"
   },
   "tabBar": {

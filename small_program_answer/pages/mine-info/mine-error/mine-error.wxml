@@ -1,6 +1,6 @@
 <wxs src="mine-error.wxs" module="tools" />
 <view class="container">
-  <view class="head"> 垃圾分类题库-错题解析</view>
+  <view class="head">建国70周年知识问答题库-错题解析</view>
   <view class="question" wx:for="{{question_list}}">
     <view class="q_title">
       <text wx:if="{{item.q_type==1}}" class="an_type">(单选)</text>
